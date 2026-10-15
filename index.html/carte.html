@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Fournil - Boulangerie artisanale</title>
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <script src="./assets/JS/panier.js" defer></script>
+</head>
+<body>
+    
+<header class="entete">
+    
+<a class="logo" href="index.html">
+    <svg
+        class="logo-motif"
+        viewBox="0 0 120 48"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+    >
+        <g
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <path d="M60 44 Q60 25 60 7"/>
+            <path d="M60 15 Q48 14 45 5 Q56 5 60 15"/>
+            <path d="M60 23 Q73 20 76 10 Q64 12 60 23"/>
+            <path d="M60 30 Q47 29 41 20 Q54 20 60 30"/>
+            <path d="M60 37 Q73 34 79 25 Q66 27 60 37"/>
+        </g>
+    </svg>
+
+    <span class="logo-texte">
+        <span class="logo-nom">Le Fournil</span>
+        <span class="logo-signature">Boulangerie artisanale</span>
+    </span>
+</a>
+
+
+    <nav aria-label="Navigation principale">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html" aria-current="page">La carte</a></li>
+            <li><a href="carte.html#tarifs">Voir les tarifs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="panier.html">Mon panier 🛒
+                <span class="compteur-panier" data-compteur-panier>0</span>
+            </a></li>
+        </ul>
+    </nav>
+</header>
+
+
+        <main>
+            <h1><strong>Nos produits phares</strong></h1>
+                <section class="produits-phares"> 
+
+                    
+                    <article>
+                    <h2>Croissant pur beurre Secret</h2>
+                    <!-- Ce titre s'affichera visuellement -->
+
+                    <img src="./assets/images/aurela-redenica-y4__jFIV1F8-unsplash(1).jpg" alt="Croissant pur beurre Secret" width="300">
+                   
+                     
+                
+                        <p><i>Laissez-vous surprendre par sa base courte, ses pointes et son volume généreux, qui offrent, dès le premier regard, un air irrésistible. </i></p>
+                        <p><i>Le feuilletage marqué, ses feuillets bien séparés et caramélisés, lui donnent un croustillant unique à la première bouchée et une fondance incomparable en bouche.</i></p>
+                    
+                        <button
+                            type="button"
+                            class="btn btn-principal ajouter-panier"
+                            data-id="croissant"
+                            data-nom="Croissant pur beurre Secret"
+                            data-prix="1.50"
+                            >
+                             🛒 Ajouter au panier
+                        </button>
+                    </article>
+
+                    <article>
+                    <h2>Gâteau roulé à la cannelle et aux pommes</h2>
+                     <!-- Ce titre s'affichera visuellement -->
+
+                    <img src="./assets/images/diliara-garifullina-klfddq7zA9I-unsplash.jpg" alt="Gâteau roulé à la cannelle et aux pommes" width="300">
+                   
+                        <p><i>Un délice juteux et savoureux ! Cette merveilleuse tarte aux pommes combine le goût des brioches à la cannelle avec de juteux morceaux de pommes.</i></p>
+                        <p><i>Si léger, si juteux et si délicieux.</i></p>
+
+                        <button
+                            type="button"
+                            class="btn btn-principal ajouter-panier"
+                            data-id="gâteau-roulé"
+                            data-nom="Gâteau roulé à la cannelle et aux pommes"
+                            data-prix="12.00"
+                            >
+                             🛒 Ajouter au panier
+                        </button>
+                    </article>
+
+                    <article>
+                    <h2>Pain ancestral</h2>
+                     <!-- Ce titre s'affichera visuellement -->
+                      
+                    <img src="./assets/images/ellie-ellien-lJxYfjJRVto-unsplash.jpg" alt="Pain ancestral" width="300">
+                   
+                    <p><i>Un pain traditionnel et noble. Chaque ingrédient, chaque geste, porte en lui une histoire de tradition, d'innovation et de passion. </i></p>
+                    <p><i>Cette création nourrit à la fois le corps et l'esprit avec son goût incomparable.</i></p>
+
+                    <button
+                            type="button"
+                            class="btn btn-principal ajouter-panier"
+                            data-id="pain-ancestral"
+                            data-nom="Pain ancestral"
+                            data-prix="3.00"
+                            >
+                             🛒 Ajouter au panier
+                        </button>
+                    </article>
+                </section>
+           
+    
+<!-- Section : Pains artisanaux -->
+<section class="section-pains">
+
+    <h2>Pains artisanaux</h2>
+
+    <div class="grille-pains">
+
+        <article class="carte-pain">
+            <img
+                src="./assets/images/helen-van-8ctLZdT67_I-unsplash.jpg"
+                alt="Pain aux céréales"
+            >
+            <h3>Pain aux céréales</h3>
+
+            <button
+                type="button"
+                class="btn btn-principal ajouter-panier"
+                data-id="pain-aux-céréales"
+                data-nom="Pain aux céréales"
+                data-prix="2.50"
+                >
+                🛒 Ajouter au panier
+            </button>
+        </article>
+
+        <article class="carte-pain">
+            <img
+                src="./assets/images/sergio-arze-BXeJttTeD_s-unsplash.jpg"
+                alt="Baguettes françaises"
+            >
+            <h3>Baguette française</h3>
+            <button
+                type="button"
+                class="btn btn-principal ajouter-panier"
+                data-id="baguette-française"
+                data-nom="Baguette française"
+                data-prix="1.20"
+                >
+                🛒 Ajouter au panier
+            </button>
+        </article>
+
+        <article class="carte-pain">
+            <img
+                src="./assets/images/charles-chen-0keGhiSw9kY-unsplash.jpg"
+                alt="Pain de campagne"
+            >
+            <h3>Pain de campagne</h3>
+
+            <button
+                type="button"
+                class="btn btn-principal ajouter-panier"
+                data-id="pain-de-campagne"
+                data-nom="Pain de campagne"
+                data-prix="2.80"
+                >
+                🛒 Ajouter au panier
+        </article>
+
+    </div>
+
+</section>
+
+
+            <!-- Section : Tarifs (avec l'ID pour l'ancre) -->
+             
+
+            <section id="tarifs" class="section-tarifs">
+
+                <h2>Tarifs</h2>
+
+            <table>
+
+                <caption>Grille tarifaire de nos créations artisanales</caption>
+                    <thead>
+                        <tr>
+                            <th>Produits</th>
+                            <th>Prix</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Croissant pur beurre Secret</td>
+                            <td>1,50€</td>
+                            <td>100g</td>
+                        </tr>
+                        <tr>
+                            <td>Gâteau roulé à la cannelle et aux pommes</td>
+                            <td>12,00€</td>
+                            <td>8 parts</td>
+                        </tr>
+                        <tr>
+                            <td>Pain ancestral</td>
+                            <td>3,00€</td>
+                            <td>500g</td>
+                        </tr>
+                        <tr>
+                            <td>Pain aux céréales</td>
+                            <td>2,50€</td>
+                            <td>500g</td>
+                        </tr>
+                        <tr>
+                            <td>Baguette française</td>
+                            <td>1,20€</td>
+                            <td>200g</td>
+                        </tr>
+                        <tr>
+                            <td>Pain de campagne</td>
+                            <td>2,80€</td>
+                            <td>500g</td>
+                        </tr>
+
+                    </tbody>
+                    
+                </table>
+               
+             </section>
+
+        </main>
+
+        
+<!-- Pied de page commun -->
+<footer class="pied-page">
+
+    <p class="signature-footer">
+        Le Fournil
+    </p>
+
+    <p>
+        © 2026 Le Fournil — Boulangerie artisanale
+    </p>
+
+    <nav aria-label="Navigation de pied de page">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html#tarifs">La carte</a></li>
+            <li>
+                <a href="carte.html#tarifs">Les tarifs</a>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+</footer>
+
+        </body>
+        </html>
+

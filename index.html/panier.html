@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon panier - Le Fournil</title>
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <script src="./assets/JS/panier.js" defer></script>
+</head>
+<body>
+
+<header class="entete">
+    <a class="logo" href="index.html">
+        <span class="logo-texte">
+            <span class="logo-nom">Le Fournil</span>
+            <span class="logo-signature">Boulangerie artisanale</span>
+        </span>
+    </a>
+
+    <nav aria-label="Navigation principale">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La carte</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="panier.html">Mon panier 🛒
+                <span class="compteur-panier" data-compteur-panier>0</span>
+            </a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="page-panier">
+    <h1>Mon panier</h1>
+
+    <div id="liste-panier"></div>
+
+    <p id="message-panier">Ton panier est vide.</p>
+
+    <h2>Total : <span id="total-panier">0,00 €</span></h2>
+
+    <a href="commande.html" class="btn btn-principal" id="passer-commande">
+    Passer commande
+    </a>
+
+
+    <a class="btn btn-secondaire" href="carte.html">
+        Continuer mes achats
+    </a>
+    <button type="button" id="vider-panier" class="btn-vider-panier">
+    Vider le panier
+</main>
+
+<footer class="pied-page">
+    <p class="signature-footer">Le Fournil</p>
+    <p>© 2026 Le Fournil — Boulangerie artisanale</p>
+</footer>
+
+</body>
+</html>

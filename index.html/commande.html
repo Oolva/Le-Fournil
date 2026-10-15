@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finaliser ma commande - Le Fournil</title>
+
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <script src="./assets/JS/commande.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <!-- Reprends ici le même header et le même menu
+             que dans panier.html, pour garder la navigation commune. -->
+    </header>
+
+    <main class="page-panier">
+        <h1>Finaliser ma commande</h1>
+
+        <p>
+            Renseignez vos coordonnées pour préparer votre commande.
+        </p>
+
+        <form id="formulaire-commande">
+
+            <h2>Vos coordonnées</h2>
+
+            <div class="champ-commande">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom"
+                       autocomplete="given-name" required>
+            </div>
+
+            <div class="champ-commande">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom"
+                       autocomplete="family-name" required>
+            </div>
+
+            <div class="champ-commande">
+                <label for="email">Adresse e-mail *</label>
+                <input type="email" id="email" name="email"
+                       autocomplete="email" required>
+            </div>
+
+            <div class="champ-commande">
+                <label for="telephone">Téléphone *</label>
+                <input type="tel" id="telephone" name="telephone"
+                       autocomplete="tel" required>
+            </div>
+
+            <h2>Retrait de la commande</h2>
+
+            <div class="champ-commande">
+                <label for="date-retrait">Date souhaitée *</label>
+                <input type="date" id="date-retrait"
+                       name="date-retrait" required>
+            </div>
+
+            <div class="champ-commande">
+                <label for="heure-retrait">Créneau souhaité *</label>
+                <select id="heure-retrait" name="heure-retrait" required>
+                    <option value="">Choisir un créneau</option>
+                    <option value="09:00">09 h - 10 h</option>
+                    <option value="10:00">10 h - 11 h</option>
+                    <option value="11:00">11 h - 12 h</option>
+                    <option value="14:00">14 h - 15 h</option>
+                    <option value="15:00">15 h - 16 h</option>
+                    <option value="16:00">16 h - 17 h</option>
+                </select>
+            </div>
+
+            <p class="note-commande">
+                Démonstration : les disponibilités ne sont pas
+                vérifiées auprès de la boulangerie.
+            </p>
+
+            <button type="submit" class="btn btn-principal">
+                Vérifier ma commande
+            </button>
+
+        </form>
+
+        <section id="recapitulatif-commande" hidden>
+    <h2>Récapitulatif de votre commande</h2>
+
+    <div id="details-client"></div>
+
+    <h3>Vos produits</h3>
+    <div id="details-produits"></div>
+
+    <p class="total-commande">
+        Total : <span id="total-commande"></span>
+    </p>
+
+    <p class="note-commande">
+        Démonstration : aucun paiement ne sera effectué.
+    </p>
+
+    <button type="button" id="confirmer-commande"
+            class="btn btn-principal">
+        Confirmer ma commande
+    </button>
+
+    <button type="button" id="modifier-commande"
+            class="btn-vider-panier">
+        Modifier mes informations
+    </button>
+</section>
+
+
+<section id="confirmation-finale" hidden>
+    <h2>Merci pour votre commande !</h2>
+
+    <p id="message-confirmation"></p>
+
+    <div class="recap-confirmation">
+        <p>
+            <strong>Numéro de commande :</strong>
+            <span id="numero-commande"></span>
+        </p>
+
+        <p>
+            <strong>Date de retrait :</strong>
+            <span id="date-confirmation"></span>
+        </p>
+
+        <p>
+            <strong>Créneau souhaité :</strong>
+            <span id="heure-confirmation"></span>
+        </p>
+
+        <h3>Votre commande</h3>
+        <div id="produits-confirmation"></div>
+
+        <p class="total-commande">
+            Total : <span id="total-confirmation"></span>
+        </p>
+    </div>
+
+    <p class="note-commande">
+        Commande de démonstration uniquement :
+        aucune commande n'a été transmise à la boulangerie
+        et aucun paiement n'a été effectué.
+    </p>
+
+    <a href="carte.html" class="btn btn-principal">
+        Retour à la carte
+    </a>
+</section>
+
+    </main>
+
+    <footer>
+        <!-- Reprends ici le même pied de page que dans panier.html. -->
+    </footer>
+
+</body>
+</html>

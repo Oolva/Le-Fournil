@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - Le Fournil</title>
+
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+</head>
+
+<body>
+
+    
+<header class="entete">
+    
+<a class="logo" href="index.html">
+    <svg
+        class="logo-motif"
+        viewBox="0 0 120 48"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+    >
+        <g
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <path d="M60 44 Q60 25 60 7"/>
+            <path d="M60 15 Q48 14 45 5 Q56 5 60 15"/>
+            <path d="M60 23 Q73 20 76 10 Q64 12 60 23"/>
+            <path d="M60 30 Q47 29 41 20 Q54 20 60 30"/>
+            <path d="M60 37 Q73 34 79 25 Q66 27 60 37"/>
+        </g>
+    </svg>
+
+    <span class="logo-texte">
+        <span class="logo-nom">Le Fournil</span>
+        <span class="logo-signature">Boulangerie artisanale</span>
+    </span>
+</a>
+
+
+    <nav aria-label="Navigation principale">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La carte</a></li>
+            <li><a href="carte.html#tarifs">Voir les tarifs</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <main class="page-contact">
+
+        
+<section class="contact-intro-vertical">
+
+
+    <p class="surtitre">Nous sommes à votre écoute</p>
+
+    <p class="texte-intro-contact">
+        Une question sur nos produits ?
+        Envie d'en savoir plus sur notre boulangerie ?
+        Nous serons ravis de vous renseigner.
+    </p>
+
+    <h1>Contactez-nous</h1>
+
+</section>
+
+
+        <section class="contact-grid">
+
+            <article class="contact-card">
+                <h2>Nous rendre visite</h2>
+
+                <p>
+                    <strong>Adresse</strong><br>
+                    99 rue de la Gourmandise<br>
+                    76190 Yvetot
+                </p>
+
+                <p>
+                    <strong>Téléphone</strong><br>
+                    À compléter
+                </p>
+
+                <p>
+                    <strong>E-mail</strong><br>
+                    À compléter
+                </p>
+            </article>
+
+            <article class="contact-card horaires">
+                <h2>Nos horaires</h2>
+
+                <p>
+                    <strong>Du lundi au vendredi</strong><br>
+                    5h30 – 19h00
+                </p>
+
+                <p>
+                    <strong>Samedi et dimanche</strong><br>
+                    6h30 - 20h00
+                </p>
+
+                <p class="note-horaires">
+                    Au plaisir de vous accueillir
+                    prochainement chez Le Fournil !
+                </p>
+            </article>
+
+        </section>
+
+        <section class="formulaire-contact">
+            <h2>Écrivez-nous</h2>
+
+            <p>
+                Remplissez ce formulaire pour préparer
+                votre message.
+            </p>
+
+            <form action="#" method="post">
+
+                <div class="champ">
+                    <label for="nom">Votre nom</label>
+                    <input
+                        type="text"
+                        id="nom"
+                        name="nom"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="champ">
+                    <label for="email">Votre adresse e-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="champ">
+                    <label for="sujet">Sujet du message</label>
+                    <input
+                        type="text"
+                        id="sujet"
+                        name="sujet"
+                        required
+                    >
+                </div>
+
+                <div class="champ">
+                    <label for="message">Votre message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-principal">
+                    Préparer mon message
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+    
+<!-- Pied de page commun -->
+<footer class="pied-page">
+
+    <p class="signature-footer">
+        Le Fournil
+    </p>
+
+    <p>
+        © 2026 Le Fournil — Boulangerie artisanale
+    </p>
+
+    <nav aria-label="Navigation de pied de page">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La carte</a></li>
+            <li>
+                <a href="/carte.html#tarifs">Les tarifs</a>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="panier.html">Mon panier 🛒
+                <span class="compteur-panier" data-compteur-panier>0</span>
+            </a></li>
+        </ul>
+    </nav>
+
+</footer>
+
+
+</body>
+</html>
