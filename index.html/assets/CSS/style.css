@@ -1,27 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-/* =========================================================
-   LE FOURNIL — FEUILLE DE STYLE PRINCIPALE
-   Styles communs et styles spécifiques aux pages :
-   index.html, carte.html, contact.html et panier.html
-
-   Organisation :
-   1. Variables et réglages généraux
-   2. Éléments HTML communs
-   3. Boutons
-   4. En-tête, logo et navigation
-   5. Page d'accueil
-   6. Page carte
-   7. Page contact
-   8. Page panier et commande
-   9. Pied de page
-   10. Adaptation tablette et mobile
-   ========================================================= */
 
 
-/* =========================================================
+/* ===================================
    1. VARIABLES ET RÉGLAGES GÉNÉRAUX
-   ========================================================= */
+   =================================== */
 
 :root {
     --terracotta: #A64B35;

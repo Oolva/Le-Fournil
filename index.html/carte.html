@@ -5,19 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Fournil - Boulangerie artisanale</title>
     <link rel="stylesheet" href="./assets/CSS/style.css">
-    <script src="./assets/JS/panier.js" defer></script>
-</head>
+    <script src="./assets/JS/panier.js" defer></script>   <!--CHARGEMENT DU JAVASCRIPT
+                                                        Ce script gère les interactions du panier.defer permet au navigateur d'analyser le HTML pendant
+                                                        le téléchargement du script, puis d'exécuter celui-ci après l'analyse du document.
+                                                        Les boutons d'ajout au panier utilisent des classes et des attributs data-* que le script peut rechercher.-->
+    
+
+
+</head> <!-- MÉTADONNÉES ET RESSOURCES-->
 <body>
     
 <header class="entete">
     
+
+ <!--LOGO CLIQUABLE
+    Le lien renvoie vers index.html, donc vers l'accueil.
+    La classe logo permet de mettre en forme le logo.-->
 <a class="logo" href="index.html">
+
+
+<!--viewBox définit les coordonnées du dessin.
+    xmlns identifie le format SVG.
+    aria-hidden="true" indique que ce motif est décoratif et peut être ignoré par les lecteurs d'écran, puisque le nom du commerce est écrit juste à côté. -->
     <svg
         class="logo-motif"
         viewBox="0 0 120 48"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
     >
+
+
+<!-- <g> regroupe les tracés du dessin.
+    fill="none" supprime le remplissage.
+    stroke="currentColor" utilise la couleur de texte définie par le CSS.
+    stroke-width règle l'épaisseur des traits.
+    stroke-linecap et stroke-linejoin règlent la forme des extrémités et des raccords.-->
         <g
             fill="none"
             stroke="currentColor"
@@ -25,6 +47,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
         >
+
+<!-- Tracés constituant le motif végétal -->
             <path d="M60 44 Q60 25 60 7"/>
             <path d="M60 15 Q48 14 45 5 Q56 5 60 15"/>
             <path d="M60 23 Q73 20 76 10 Q64 12 60 23"/>
@@ -33,13 +57,26 @@
         </g>
     </svg>
 
+
+
+ <!--PARTIE TEXTUELLE DU LOGO
+    Les balises span regroupent des textes en ligne.
+    Les classes permettent de styliser séparément le nom du commerce et sa signature en CSS.-->
     <span class="logo-texte">
         <span class="logo-nom">Le Fournil</span>
         <span class="logo-signature">Boulangerie artisanale</span>
     </span>
+
+
+
+
+<!--NAVIGATION PRINCIPALE
+    <nav> identifie une zone de navigation.
+    aria-label donne un nom à cette zone pour les technologies d'assistance.
+    <ul> crée une liste non ordonnée.
+    Chaque <li> représente un élément de cette liste.
+    Les balises <a> créent les liens de navigation.-->
 </a>
-
-
     <nav aria-label="Navigation principale">
         <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -55,7 +92,13 @@
 
 
         <main>
+
+        <!--TITRE PRINCIPAL
+            La mise en gras est généralement obtenue par défaut, mais son apparence peut être modifiée par le CSS.-->
             <h1><strong>Nos produits phares</strong></h1>
+
+            <!--SECTION DES PRODUITS PHARES
+                La classe produits-phares permet au CSS de cibler cette section pour organiser et présenter son contenu.-->
                 <section class="produits-phares"> 
 
                     
@@ -70,6 +113,9 @@
                         <p><i>Laissez-vous surprendre par sa base courte, ses pointes et son volume généreux, qui offrent, dès le premier regard, un air irrésistible. </i></p>
                         <p><i>Le feuilletage marqué, ses feuillets bien séparés et caramélisés, lui donnent un croustillant unique à la première bouchée et une fondance incomparable en bouche.</i></p>
                     
+
+                    <!--Les attributs data-id, data-nom et data-prix servent à transmettre au JavaScript l'identifiant, le nom et le prix de chaque produit.
+                    Il est donc important de ne pas les modifier en ajoutant les commentaires.-->
                         <button
                             type="button"
                             class="btn btn-principal ajouter-panier"
@@ -89,7 +135,15 @@
                    
                         <p><i>Un délice juteux et savoureux ! Cette merveilleuse tarte aux pommes combine le goût des brioches à la cannelle avec de juteux morceaux de pommes.</i></p>
                         <p><i>Si léger, si juteux et si délicieux.</i></p>
+                    
 
+
+                    <!--BOUTON D'AJOUT AU PANIER
+                        type="button" évite que ce bouton soumette involontairement un formulaire.
+                        class contient trois classes :
+                                btn et btn-principal servent au style CSS ;
+                                ajouter-panier permet au JavaScript de retrouver les boutons d'ajout au panier.
+                        Les attributs data-* transmettent les données du produit au script panier.js. -->
                         <button
                             type="button"
                             class="btn btn-principal ajouter-panier"
@@ -124,7 +178,8 @@
            
     
 <!-- Section : Pains artisanaux -->
-<section class="section-pains">
+    
+<section class="section-pains"> <!-- permet au CSS de cibler l'ensemble de la zone. -->
 
     <h2>Pains artisanaux</h2>
 
@@ -137,6 +192,9 @@
             >
             <h3>Pain aux céréales</h3>
 
+
+            <!--Le bouton utilise la même classe ajouter-panier que les autres produits.
+                Le script peut donc traiter tous ces boutons avec une logique commune.-->
             <button
                 type="button"
                 class="btn btn-principal ajouter-panier"
@@ -195,17 +253,29 @@
 
                 <h2>Tarifs</h2>
 
-            <table>
+            <table> <!--représente des données organisées en lignes et en colonnes.
+                    Un tableau est adapté ici à la comparaison des produits, de leurs prix et de leurs formats.-->
 
+
+                 <!--LÉGENDE DU TABLEAU
+                        <caption> fournit un titre descriptif au tableau. 
+                        Il aide à comprendre son sujet, notamment pour les technologies d'assistance.-->
                 <caption>Grille tarifaire de nos créations artisanales</caption>
-                    <thead>
-                        <tr>
-                            <th>Produits</th>
+
+                    <thead> <!--regroupe les cellules d'en-tête -->
+                        <tr> <!-- représente une ligne -->
+                            <th>Produits</th> <!-- représente une cellule d'en-tête -->
                             <th>Prix</th>
                             <th>Format</th>
                         </tr>
                     </thead>
 
+
+
+
+                 <!--CORPS DU TABLEAU
+                        <tbody> regroupe les lignes contenant les données tarifaires.
+                        <td> représente une cellule de données.-->
                     <tbody>
 
                         <tr>
@@ -251,17 +321,20 @@
 <!-- Pied de page commun -->
 <footer class="pied-page">
 
-    <p class="signature-footer">
+    <p class="signature-footer"> <!-- Signature du commerce -->
         Le Fournil
     </p>
 
     <p>
-        © 2026 Le Fournil — Boulangerie artisanale
+        © 2026 Le Fournil — Boulangerie artisanale <!-- Mention de copyright et année affichée -->
     </p>
 
-    <nav aria-label="Navigation de pied de page">
+    <nav aria-label="Navigation de pied de page">  <!--NAVIGATION DE PIED DE PAGE-->
+
         <ul>
             <li><a href="index.html">Accueil</a></li>
+
+            <!--Ce lien pointe actuellement vers la section des tarifs de carte.html, et non vers le début du catalogue.  -->
             <li><a href="carte.html#tarifs">La carte</a></li>
             <li>
                 <a href="carte.html#tarifs">Les tarifs</a>

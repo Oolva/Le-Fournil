@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> <!--ENCODAGE DES CARACTÈRES-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--AFFICHAGE RESPONSIVE-->
+
     <title>Le Fournil - Boulangerie artisanale</title>
 
+    <!--LIAISON AVEC LE FICHIER CSS-->
     <link rel="stylesheet" href="./assets/CSS/style.css">
-</head>
-<body>
+
+
+
+
+
+</head> <!--MÉTADONNÉES DU DOCUMENT-->
+<body> <!--CORPS DU DOCUMENT--> 
 
     <!--En-tête et bannière--> 
     <header class="entete">
         
 
-<a class="logo" href="index.html">
+<a class="logo" href="index.html"> <!--LOGO DU FOURNIL--> <!--Le logo est cliquable et renvoie vers l'accueil.
+                                                          La classe logo permet de mettre en forme l'ensemble du logo en CSS.-->
+    </a>
+
+    <!-- MOTIF SVG DU LOGO 
+    svg signifie Scalable Vector Graphics.
+    Il permet de dessiner des formes avec du code plutôt que d'utiliser une image matricielle.
+                viewBox définit le repère de dessin.
+                xmlns identifie le format SVG.
+                aria-hidden="true" masque ce motif décoratif aux technologies d'assistance, car le nom du logo est déjà fourni par le texte associé.
+                currentColor permet au motif d'utiliser la couleur de texte définie en CSS.-->
     <svg
         class="logo-motif"
         viewBox="0 0 120 48"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
     >
+
+
+     <!--Le groupe <g> rassemble plusieurs tracés.
+                fill="none" supprime le remplissage.
+                stroke="currentColor" définit la couleur du contour.
+                stroke-width règle l'épaisseur du trait.
+                Les propriétés linecap et linejoin arrondissent les extrémités et les angles.-->
+    <!-- path représente la tige centrale et l'épi stylisé -->
         <g
             fill="none"
             stroke="currentColor"
@@ -35,6 +60,12 @@
         </g>
     </svg>
 
+
+
+
+      <!--IDENTITÉ TEXTUELLE DU LOGO
+        Les balises <span> regroupent des portions de texte sans créer de nouveau bloc.
+        Elles permettent de styliser séparément le nom et la signature en CSS. -->
     <span class="logo-texte">
         <span class="logo-nom">Le Fournil</span>
         <span class="logo-signature">Boulangerie artisanale</span>
@@ -42,52 +73,92 @@
 </a>
 
 
+    <!--NAVIGATION PRINCIPALE
+        <nav> identifie une zone de navigation.
+        aria-label donne un nom à cette navigation pour les technologies d'assistance. -->
 
         <nav aria-label="Navigation principale">
         <ul>
             <li><a href="index.html" aria-current="page">Accueil</a></li>
             <li><a href="carte.html">La carte</a></li>
             <li><a href="carte.html#tarifs">Voir les tarifs</a></li>
+    <!-- LIEN D'ANCRE
+    Le symbole # indique une cible identifiée par son attribut id dans la page de destination.
+    Ici, le navigateur ouvre carte.html et cherche l'élément dont l'identifiant est "tarifs".
+    La section correspondante doit donc posséder id="tarifs" dans carte.html. -->
             <li><a href="contact.html">Contact</a></li>
 
             <li><a href="panier.html">Mon panier 🛒
                 <span class="compteur-panier" data-compteur-panier>0</span>
+    <!--ACCÈS AU PANIER
+    data-compteur-panier est un attribut HTML personnalisé commençant par data-.
+    JavaScript peut rechercher cet attribut pour afficher le nombre d'articles dans le panier.
+    La valeur initiale affichée est ici 0.-->
             </a></li>
         </ul>
-    </nav>
-
-    </header>
+        </nav>
+</header>
 
     
+
+<!--CONTENU PRINCIPAL DE LA PAGE-->
      
 <main>
 
-    <!-- BANNIÈRE D'ACCUEIL -->
+    <!-- BANNIÈRE D'ACCUEIL 
+     La classe hero permet de styliser cette zone principale, souvent appelée "hero section".
+    id="accueil" donne un identifiant unique à la section.
+    Un lien peut cibler cet identifiant avec #accueil.-->
     <section class="hero" id="accueil">
-        <p class="surtitre">Boulangerie artisanale</p>
 
+        <p class="surtitre">Boulangerie artisanale</p> <!-- Surtitre : texte introductif de la section -->
+
+
+    <!--TITRE PRINCIPAL H1
+    Le titre <h1> exprime le sujet principal de la page. 
+    Les titres structurent le contenu et facilitent sa compréhension.-->
         <h1>Chaque jour, le plaisir du bon.</h1>
 
+
+     <!-- Texte de présentation de la boulangerie -->
         <p>
             Le Fournil, votre adresse gourmande
             pour les petits plaisirs du quotidien.
         </p>
 
+
+
+    <!--BOUTON D'ACCÈS AU CATALOGUE
+    Il s'agit d'un lien HTML et non d'un bouton JavaScript : son rôle est de changer de page.
+    Les classes btn et btn-principal permettent de lui appliquer le style défini dans style.css. -->
         <a class="btn btn-principal" href="carte.html">
             Découvrir notre carte
         </a>
+
+
+    <!--PHOTO ET TEXTE DE PRÉSENTATION-->
     </section>
 
-    <!-- PHOTO ET TEXTE -->
+    <!-- Cette section associe une photographie à un texte de présentation de l'identité de la boulangerie.-->
     <section class="photo-vitrine">
+
+     <!--IMAGE DE VITRINE
+    src indique le chemin vers le fichier image.
+    alt fournit une description textuelle utile si l'image ne peut pas être affichée et pour les utilisateurs de lecteurs d'écran.
+    Le chemin est relatif à index.html.
+    Le nom et les majuscules/minuscules doivent correspondre au fichier réellement présent.-->
         <img
             src="./assets/images/ellie-ellien-lJxYfjJRVto-unsplash.jpg"
             alt="Pain artisanal à la croûte dorée"
         >
 
+    <!-- Conteneur permettant de mettre en forme le texte -->    
         <div class="photo-texte">
             <p class="surtitre">L'esprit du Fournil</p>
 
+
+
+    <!-- Sous-partie du contenu -->        
             <h2>Un plaisir à partager.</h2>
 
             <p>
@@ -99,10 +170,18 @@
     </section>
 
 
+
+
+
+    
+
 <!-- Section : Nos incontournables -->
+<!--Les classes incontournables, grille-produits et produit-accueil seront utilisées par le CSS pour organiser et présenter les cartes produits.-->
 
 <section class="incontournables">
 
+
+ <!-- Introduction de la section -->
     <div class="incontournables-intro">
         <p class="surtitre">La gourmandise au rendez-vous</p>
         <h2>Nos incontournables</h2>
@@ -112,15 +191,25 @@
         </p>
     </div>
 
+
+
+<!--GRILLE DES PRODUITS
+Le conteneur grille-produits regroupe les cartes.
+Le CSS peut utiliser Grid ou Flexbox pour organiser ces cartes et adapter leur disposition à l'écran. -->
     <div class="grille-produits">
 
+
+
+<!--CARTE PRODUIT 1
+    <article> représente un contenu autonome,ici une fiche consacrée à un produit.
+    La classe produit-accueil permet d'appliquer un style commun à chaque carte.-->       
         <article class="produit-accueil">
             <img
                 class="photo-croissant"
                 src="./assets/images/aurela-redenica-y4__jFIV1F8-unsplash(1).jpg"
                 alt="Croissants pur beurre dorés"
             >
-            <div class="produit-contenu">
+            <div class="produit-contenu">  <!-- Regroupe le titre et la description -->
                 <h3>Croissant pur beurre</h3>
                 <p>
                     Un feuilletage doré et croustillant,
@@ -129,6 +218,7 @@
             </div>
         </article>
 
+<!-- CARTE PRODUIT 2 -->
         <article class="produit-accueil">
             <img
                 class="photo-roule"
@@ -144,6 +234,7 @@
             </div>
         </article>
 
+<!-- CARTE PRODUIT 3 -->
         <article class="produit-accueil">
             <img
                 class="photo-pain"
@@ -161,6 +252,12 @@
 
     </div>
 
+
+
+
+<!--LIEN VERS LE CATALOGUE COMPLET
+    Cette zone contient un lien permettant de découvrir tous les produits sur carte.html.
+    Les deux classes btn servent à la mise en forme.-->
     <div class="incontournables-action">
         <a href="carte.html" class="btn btn-principal">
             Découvrir toute notre carte
@@ -169,18 +266,22 @@
 
 </section>
 
-<!-- Section : Notre savoir-faire -->
 
+
+
+<!-- Section : Notre savoir-faire -->
+<!--Cette section présente les valeurs de la boulangerie.
+    Elle associe une image à un texte et à un lien vers la page de contact.-->
 <section class="savoir-faire">
 
-    <div class="savoir-faire-photo">
+    <div class="savoir-faire-photo"> <!-- Conteneur de la photographie -->
         <img
             src="./assets/images/charles-chen-0keGhiSw9kY-unsplash.jpg"
             alt="Pain artisanal préparé avec soin"
         >
     </div>
 
-    <div class="savoir-faire-texte">
+    <div class="savoir-faire-texte"> <!-- Conteneur du texte de présentation -->
         <p class="surtitre">L'esprit du Fournil</p>
 
         <h2>La passion du bon, au quotidien.</h2>
@@ -196,6 +297,9 @@
             moments qui rendent chaque journée plus savoureuse.
         </p>
 
+
+<!--LIEN VERS LE FORMULAIRE DE CONTACT
+    Le visiteur peut accéder à contact.html pour consulter les informations de contact et utiliser le formulaire qui y est proposé.-->
         <a href="contact.html" class="btn btn-secondaire">
             Nous contacter
         </a>
@@ -207,23 +311,35 @@
 
 
 
+
+
+
 <!-- Pied de page commun -->
 <footer class="pied-page">
 
-    <p class="signature-footer">
+    <p class="signature-footer">  <!-- Signature textuelle de la boulangerie -->
         Le Fournil
     </p>
 
+
+
+<!--MENTION DE COPYRIGHT
+    Le symbole © indique une mention de droit d'auteur.
+    L'année affichée ici est une information écrite manuellement dans le HTML.-->
     <p>
         © 2026 Le Fournil — Boulangerie artisanale
     </p>
 
+
+<!--NAVIGATION SECONDAIRE
+    Cette navigation reprend les principaux liens pour permettre au visiteur de se déplacer facilement depuis le bas de la page.
+    L'attribut aria-label distingue cette navigation de celle située dans l'en-tête.-->
     <nav aria-label="Navigation de pied de page">
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="carte.html">La carte</a></li>
             <li>
-                <a href="carte.html#tarifs">Les tarifs</a>
+                <a href="carte.html#tarifs">Les tarifs</a>  <!-- Renvoie directement à la zone des tarifs -->
             </li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
