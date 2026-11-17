@@ -7,20 +7,49 @@
     <title>Contact - Le Fournil</title>
 
     <link rel="stylesheet" href="./assets/CSS/style.css">
+    <!-- LIAISON AVEC LE FICHIER CSS
+         LINK permet de relier le document HTML à une feuille de style externe.
+         rel="stylesheet" indique qu'il s'agit d'un fichier CSS.
+         href indique le chemin d'accès au fichier.
+         Le CSS gère la présentation visuelle de la page. -->
 </head>
 
 <body>
 
     
 <header class="entete">
-    
+
+
+    <!-- LOGO CLIQUABLE
+             A crée un lien hypertexte.
+             href="index.html" renvoie vers la page d'accueil.
+             La classe logo permet de personnaliser son apparence en CSS. -->
 <a class="logo" href="index.html">
+
+
+     <!-- MOTIF SVG DU LOGO
+                 SVG signifie Scalable Vector Graphics.
+                 Il permet de créer un dessin vectoriel directement dans le HTML.
+                 viewBox définit la zone de dessin.
+                 xmlns identifie le format SVG.
+                 aria-hidden="true" indique que ce motif décoratif
+                 peut être ignoré par les lecteurs d'écran. -->
     <svg
         class="logo-motif"
         viewBox="0 0 120 48"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
     >
+
+
+
+    <!-- GROUPE DE TRACÉS
+                     G permet de regrouper plusieurs éléments graphiques.
+                     fill="none" supprime le remplissage.
+                     stroke="currentColor" utilise la couleur définie en CSS.
+                     stroke-width définit l'épaisseur des traits.
+                     stroke-linecap et stroke-linejoin arrondissent les extrémités
+                     et les raccords des lignes. -->
         <g
             fill="none"
             stroke="currentColor"
@@ -36,6 +65,11 @@
         </g>
     </svg>
 
+
+    <!-- IDENTITÉ TEXTUELLE DU LOGO
+                 SPAN permet de regrouper une portion de texte sans créer un bloc.
+                 Les classes permettent de styliser séparément le nom
+                 et la signature du commerce avec le CSS. -->
     <span class="logo-texte">
         <span class="logo-nom">Le Fournil</span>
         <span class="logo-signature">Boulangerie artisanale</span>
@@ -43,41 +77,91 @@
 </a>
 
 
+
+
+ <!-- NAVIGATION PRINCIPALE
+             NAV identifie une zone de navigation.
+             aria-label donne un nom à cette navigation pour les lecteurs d'écran.
+             UL crée une liste non ordonnée.
+             LI représente un élément de la liste.
+             A crée les liens vers les différentes pages du site. -->
     <nav aria-label="Navigation principale">
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="carte.html">La carte</a></li>
+
             <li><a href="carte.html#tarifs">Voir les tarifs</a></li>
+            <!-- LIEN D'ANCRE
+                     Le symbole # permet de cibler une partie précise d'une page.
+                     Ici, le navigateur ouvre carte.html à l'emplacement de l'élément qui possède id="tarifs". -->
+
             <li><a href="contact.html" aria-current="page">Contact</a></li>
+              <!-- aria-current="page" indique que le visiteur consulte actuellement la page Contact. -->
+
         </ul>
     </nav>
 </header>
+    <!-- FIN DE L'EN-TÊTE -->
 
 
+    <!-- CONTENU PRINCIPAL
+         MAIN regroupe le contenu principal et spécifique à cette page.
+         La classe page-contact permet au CSS de cibler cette page
+         et de lui appliquer une présentation particulière. -->
     <main class="page-contact">
 
-        
+
+    <!-- SECTION D'INTRODUCTION
+             SECTION regroupe des éléments autour d'un même thème.
+             La classe contact-intro-vertical permet de personnaliser la disposition de cette introduction en CSS. -->
 <section class="contact-intro-vertical">
 
 
+    <!-- SURTITRE
+                 P représente un paragraphe.
+                 La classe surtitre permet de lui appliquer un style spécifique. -->
     <p class="surtitre">Nous sommes à votre écoute</p>
 
+
+    <!-- TEXTE DE PRÉSENTATION
+                 Cette classe permet au CSS de personnaliser le texte introductif.
+                 Les retours à la ligne dans le code facilitent la lecture mais ne créent pas nécessairement de nouveaux paragraphes. -->
     <p class="texte-intro-contact">
         Une question sur nos produits ?
         Envie d'en savoir plus sur notre boulangerie ?
         Nous serons ravis de vous renseigner.
     </p>
 
+
+     <!-- TITRE PRINCIPAL
+                 H1 représente le titre de premier niveau.
+                 Il annonce le sujet principal de la page.
+                 Une page doit généralement posséder un titre H1 principal. -->
     <h1>Contactez-nous</h1>
 
 </section>
+    <!-- FIN DE LA SECTION D'INTRODUCTION -->
 
-
+        
+    <!-- SECTION DES INFORMATIONS DE CONTACT
+             CONTACT-GRID est une classe CSS permettant de regrouper les différentes cartes d'informations.
+             Le terme GRID fait référence à une disposition en grille. -->
         <section class="contact-grid">
 
-            <article class="contact-card">
-                <h2>Nous rendre visite</h2>
 
+            <!-- PREMIÈRE CARTE : COORDONNÉES
+                 ARTICLE représente un contenu autonome.
+                 Ici, il contient les informations pratiques de la boulangerie.
+                 La classe contact-card permet de mettre en forme cette carte. -->
+            <article class="contact-card">
+
+
+                <h2>Nous rendre visite</h2>  <!-- H2 : titre de deuxième niveau, associé à la section. -->
+
+
+            <!-- INFORMATIONS SUR L'ADRESSE
+                     STRONG indique que le texte possède une importance particulière.
+                     BR provoque un retour à la ligne sans créer un nouveau paragraphe. -->
                 <p>
                     <strong>Adresse</strong><br>
                     99 rue de la Gourmandise<br>
@@ -95,6 +179,10 @@
                 </p>
             </article>
 
+
+            <!-- DEUXIÈME CARTE : HORAIRES
+                 La classe horaires est une classe supplémentaire.
+                 Elle permet d'appliquer des règles CSS particulières à cette carte sans modifier les autres cartes contact-card. -->
             <article class="contact-card horaires">
                 <h2>Nos horaires</h2>
 
@@ -108,6 +196,9 @@
                     6h30 - 20h00
                 </p>
 
+
+                <!-- MESSAGE COMPLÉMENTAIRE
+                     La classe note-horaires permet de distinguer ce texte des autres paragraphes de la carte. -->
                 <p class="note-horaires">
                     Au plaisir de vous accueillir
                     prochainement chez Le Fournil !
@@ -115,7 +206,13 @@
             </article>
 
         </section>
+ <!-- FIN DE LA SECTION DES INFORMATIONS DE CONTACT -->
 
+
+
+        <!-- SECTION DU FORMULAIRE DE CONTACT
+             FORMULAIRE-CONTACT est une classe CSS qui permet de personnaliser l'ensemble de la zone contenant le formulaire.
+             Le visiteur peut préparer un message à l'aide des champs proposés. -->
         <section class="formulaire-contact">
             <h2>Écrivez-nous</h2>
 
@@ -124,8 +221,32 @@
                 votre message.
             </p>
 
+
+            <!-- FORMULAIRE HTML
+                 FORM permet de créer un formulaire de saisie.
+                 ACTION indique la destination des données lors de l'envoi.
+                 Ici, action="#" ne désigne pas de véritable traitement serveur.
+                 METHOD="post" indique la méthode d'envoi des données.
+
+                 IMPORTANT :
+                 Ce formulaire ne transmet pas réellement un e-mail à lui seul.
+                 Il faudrait un traitement côté serveur ou un service externe pour recevoir les messages. -->
             <form action="#" method="post">
 
+
+
+                <!-- PREMIER CHAMP : NOM
+                     DIV est un conteneur générique.
+                     La classe champ permet de regrouper le label et le champ afin de les organiser ensemble avec le CSS.
+
+                     LABEL désigne le champ de saisie.
+                     FOR="nom" fait le lien avec l'élément qui possède id="nom".
+                     INPUT crée un champ de saisie.
+                     TYPE="text" autorise la saisie de texte.
+                     ID identifie le champ de manière unique dans la page.
+                     NAME définit le nom utilisé lors de la transmission des données.
+                     AUTOCOMPLETE="name" aide le navigateur à proposer le nom enregistré de l'utilisateur.
+                     REQUIRED rend la saisie obligatoire. -->
                 <div class="champ">
                     <label for="nom">Votre nom</label>
                     <input
@@ -137,6 +258,12 @@
                     >
                 </div>
 
+
+                <!-- DEUXIÈME CHAMP : ADRESSE E-MAIL
+                     TYPE="email" indique qu'il s'agit d'une adresse électronique.
+                     Le navigateur peut vérifier le format de l'adresse saisie.
+                     AUTOCOMPLETE="email" facilite le remplissage automatique.
+                     REQUIRED oblige le visiteur à renseigner ce champ. -->
                 <div class="champ">
                     <label for="email">Votre adresse e-mail</label>
                     <input
@@ -148,6 +275,11 @@
                     >
                 </div>
 
+
+                <!-- TROISIÈME CHAMP : SUJET
+                     TYPE="text" permet de saisir un texte court.
+                     LABEL identifie clairement le contenu attendu.
+                     REQUIRED rend ce champ obligatoire. -->
                 <div class="champ">
                     <label for="sujet">Sujet du message</label>
                     <input
@@ -158,6 +290,14 @@
                     >
                 </div>
 
+
+                <!-- QUATRIÈME CHAMP : MESSAGE
+                     TEXTAREA crée une zone de saisie multiligne.
+                     Contrairement à INPUT, elle permet de rédiger un texte plus long sur plusieurs lignes.
+                     ID permet de relier le champ à son LABEL.
+                     NAME définit le nom de la donnée transmise.
+                     ROWS="5" définit une hauteur initiale de cinq lignes.
+                     REQUIRED rend la saisie obligatoire. -->
                 <div class="champ">
                     <label for="message">Votre message</label>
                     <textarea
@@ -168,14 +308,20 @@
                     ></textarea>
                 </div>
 
+
+                 <!-- BOUTON DE VALIDATION
+                     BUTTON crée un bouton interactif.
+                     TYPE="submit" déclenche l'envoi du formulaire.
+                     CLASS permet d'appliquer les styles définis dans le CSS.
+                     Dans la configuration actuelle, action="#" ne permet pas de transmettre réellement le message à une messagerie. -->
                 <button type="submit" class="btn btn-principal">
                     Préparer mon message
                 </button>
 
-            </form>
-        </section>
+            </form>   <!-- FIN DU FORMULAIRE -->
+        </section> <!-- FIN DE LA SECTION DU FORMULAIRE -->
 
-    </main>
+    </main>   <!-- FIN DU CONTENU PRINCIPAL -->
 
     
 <!-- Pied de page commun -->
@@ -185,21 +331,44 @@
         Le Fournil
     </p>
 
+
+        <!-- MENTION DE COPYRIGHT
+             Le symbole © indique une mention de droit d'auteur.
+             L'année est renseignée manuellement dans le HTML. -->
     <p>
         © 2026 Le Fournil — Boulangerie artisanale
     </p>
 
+
+
+     <!-- NAVIGATION SECONDAIRE
+             NAV définit une zone de navigation.
+             aria-label permet de distinguer cette navigation de celle située dans l'en-tête.
+             UL et LI organisent les liens sous forme de liste. -->
     <nav aria-label="Navigation de pied de page">
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="carte.html">La carte</a></li>
+
+
+             <!-- LIEN VERS LES TARIFS
+                     Le slash initial dans /carte.html indique un chemin depuis la racine du site.
+                     Sur un hébergement à la racine, il peut fonctionner, mais le chemin relatif carte.html est plus adapté à la navigation entre ces fichiers du projet. -->
             <li>
                 <a href="/carte.html#tarifs">Les tarifs</a>
             </li>
             <li><a href="contact.html">Contact</a></li>
+
+            <!-- ACCÈS AU PANIER
+                     Le lien permet d'ouvrir la page panier.html.
+                     Le compteur est actualisé par JavaScript grâce à l'attribut data-compteur-panier. -->
             <li><a href="panier.html">Mon panier 🛒
                 <span class="compteur-panier" data-compteur-panier>0</span>
             </a></li>
+
+            <!-- DEUXIÈME LIEN VERS LE PANIER
+                     Cette deuxième entrée utilise la classe lien-panier.
+                     Elle possède également un compteur utilisant le même attribut personnalisé. -->
             <li>
                 <a href="panier.html" class="lien-panier">
                     Mon panier
@@ -209,8 +378,8 @@
         </ul>
     </nav>
 
-</footer>
+</footer> <!-- FIN DU PIED DE PAGE -->
 
 
-</body>
-</html>
+</body> <!-- FIN DU CORPS DU DOCUMENT -->
+</html> <!-- FIN DU DOCUMENT HTML -->

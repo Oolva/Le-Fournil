@@ -8,11 +8,20 @@
     <title>Finaliser ma commande - Le Fournil</title>
 
     <link rel="stylesheet" href="./assets/CSS/style.css">
+
+     <!-- CHARGEMENT DU JAVASCRIPT
+         Le fichier commande.js gère notamment :
+         - La récupération des informations du formulaire.
+         - La vérification des données saisies.
+         - L'affichage du récapitulatif.
+         - La confirmation de la commande.
+         - La génération des informations de confirmation. -->
     <script src="./assets/JS/commande.js" defer></script>
 </head>
 
 <body>
 
+     <!-- Le header et son menu doivent reprendre le logo et la navigation commune des autres pages. -->
     <header>
         <!-- Reprends ici le même header et le même menu
              que dans panier.html, pour garder la navigation commune. -->
@@ -21,46 +30,118 @@
     <main class="page-panier">
         <h1>Finaliser ma commande</h1>
 
+
+        <!-- TEXTE INTRODUCTIF
+             P représente un paragraphe.
+             Il présente brièvement l'objectif du formulaire. -->
         <p>
             Renseignez vos coordonnées pour préparer votre commande.
         </p>
 
+
+         <!-- FORMULAIRE DE COMMANDE
+             FORM permet de créer un formulaire de saisie.
+             ID="formulaire-commande" identifie le formulaire de manière unique.
+
+             JavaScript peut utiliser cet identifiant pour récupérer les informations saisies et écouter la validation du formulaire.
+
+             Contrairement au formulaire de contact, aucun attribut action ni method n'est défini ici : le traitement est prévu en JavaScript. -->
         <form id="formulaire-commande">
 
+
+             <!-- PREMIÈRE PARTIE : COORDONNÉES DU CLIENT
+                 H2 représente un titre de deuxième niveau.
+                 Il permet de structurer le formulaire en différentes parties. -->
             <h2>Vos coordonnées</h2>
 
+
+             <!-- CHAMP PRÉNOM
+                 DIV est un conteneur générique.
+                 La classe champ-commande permet de regrouper le libellé et le champ de saisie pour leur appliquer un style CSS.
+
+                 LABEL désigne le champ à remplir.
+                 FOR="prenom" associe le libellé à l'élément id="prenom".
+
+                 INPUT crée un champ de saisie.
+                 TYPE="text" autorise la saisie de texte.
+                 ID identifie le champ dans la page.
+                 NAME définit le nom de la donnée.
+                 AUTOCOMPLETE="given-name" aide le navigateur à proposer le prénom.
+                 REQUIRED rend le champ obligatoire. -->
             <div class="champ-commande">
                 <label for="prenom">Prénom *</label>
                 <input type="text" id="prenom" name="prenom"
                        autocomplete="given-name" required>
             </div>
 
+
+             <!-- CHAMP NOM
+                 TYPE="text" permet de saisir du texte.
+                 AUTOCOMPLETE="family-name" correspond au nom de famille.
+                 REQUIRED oblige le visiteur à remplir ce champ. -->
             <div class="champ-commande">
                 <label for="nom">Nom *</label>
                 <input type="text" id="nom" name="nom"
                        autocomplete="family-name" required>
             </div>
 
+
+            <!-- CHAMP ADRESSE E-MAIL
+                 TYPE="email" indique qu'il s'agit d'une adresse électronique.
+                 Le navigateur peut contrôler le format de l'adresse saisie.
+                 AUTOCOMPLETE="email" facilite le remplissage automatique.
+                 REQUIRED rend la saisie obligatoire. -->
             <div class="champ-commande">
                 <label for="email">Adresse e-mail *</label>
                 <input type="email" id="email" name="email"
                        autocomplete="email" required>
             </div>
 
+
+            <!-- CHAMP TÉLÉPHONE
+                 TYPE="tel" indique que le champ attend un numéro de téléphone.
+                 AUTOCOMPLETE="tel" aide le navigateur à proposer le numéro enregistré.
+                 REQUIRED rend ce champ obligatoire.
+
+                 Contrairement à TYPE="number", TYPE="tel" permet de conserver les caractères utiles d'un numéro de téléphone, notamment le 0
+                 initial et les espaces. -->
             <div class="champ-commande">
                 <label for="telephone">Téléphone *</label>
                 <input type="tel" id="telephone" name="telephone"
                        autocomplete="tel" required>
             </div>
 
+
+
+             <!-- DEUXIÈME PARTIE : RETRAIT DE LA COMMANDE
+                 Ce titre introduit les informations nécessaires à la préparation du retrait. -->
             <h2>Retrait de la commande</h2>
 
+
+            <!-- CHAMP DATE DE RETRAIT
+                 TYPE="date" affiche un sélecteur de date adapté au navigateur.
+                 ID permet d'identifier le champ.
+                 NAME définit le nom de la donnée.
+                 REQUIRED rend le choix obligatoire. -->
             <div class="champ-commande">
                 <label for="date-retrait">Date souhaitée *</label>
                 <input type="date" id="date-retrait"
                        name="date-retrait" required>
             </div>
 
+
+            <!-- CHAMP DE SÉLECTION DU CRÉNEAU
+                 SELECT crée une liste déroulante.
+                 ID identifie la liste.
+                 NAME définit le nom de la donnée.
+                 REQUIRED oblige le visiteur à choisir un créneau.
+
+                 OPTION représente chaque choix disponible.
+                 VALUE correspond à la valeur transmise au JavaScript.
+                 Le texte situé entre les balises OPTION est affiché au visiteur.
+
+                 La première option possède une valeur vide.
+                 Elle sert de texte indicatif et oblige à choisir un véritable créneau. -->
             <div class="champ-commande">
                 <label for="heure-retrait">Créneau souhaité *</label>
                 <select id="heure-retrait" name="heure-retrait" required>
@@ -74,47 +155,108 @@
                 </select>
             </div>
             
+
+              <!-- NAVIGATION DE COMMANDE
+                 DIV regroupe les éléments de navigation.
+                 La classe navigation-commande permet de gérer leur disposition en CSS.
+
+                 A crée un lien hypertexte.
+                 href="panier.html" permet de revenir à la page du panier.
+                 La classe bouton-retour permet de personnaliser son apparence. -->
             <div class="navigation-commande">
                 <a href="panier.html" class="bouton-retour">
                 ← Retour au panier
                 </a>
             </div>
-        </div>
 
             
 
+
+            <!-- NOTE D'INFORMATION
+                 P représente un paragraphe.
+                 La classe note-commande permet de différencier visuellement cette information du reste du formulaire.
+
+                 Le texte précise que les disponibilités ne sont pas réellement vérifiées auprès de la boulangerie. -->
             <p class="note-commande">
-                Démonstration : les disponibilités ne sont pas
-                vérifiées auprès de la boulangerie.
+                Démonstration : les disponibilités ne sont pas réellement vérifiées auprès de la boulangerie.
             </p>
 
+
+            <!-- BOUTON DE VALIDATION DU FORMULAIRE
+                 BUTTON crée un bouton interactif.
+                 TYPE="submit" déclenche la validation du formulaire.
+                 Le navigateur vérifie notamment les champs obligatoires.
+
+                 La classe btn btn-principal permet de lui appliquer le style du bouton principal défini dans le CSS.
+
+                 Le fichier commande.js peut écouter cet événement pour afficher le récapitulatif de la commande. -->
             <button type="submit" class="btn btn-principal">
                 Vérifier ma commande
             </button>
 
-        </form>
+        </form> <!-- FIN DU FORMULAIRE DE COMMANDE -->
 
+
+
+         <!-- SECTION DU RÉCAPITULATIF
+             SECTION regroupe les informations relatives à la commande.
+
+             ID="recapitulatif-commande" permet au JavaScript de retrouver cette section.
+
+             L'attribut HIDDEN masque initialement cette section.
+             JavaScript pourra la rendre visible après la validation du formulaire. -->
         <section id="recapitulatif-commande" hidden>
     <h2>Récapitulatif de votre commande</h2>
 
+
+    <!-- INFORMATIONS DU CLIENT
+                 DIV sert de conteneur.
+                 JavaScript utilise cet identifiant pour afficher les coordonnées saisies dans le formulaire. -->
     <div id="details-client"></div>
 
+
+    <!-- DÉTAILS DES PRODUITS
+                 H3 représente un titre de troisième niveau.
+                 Il introduit la liste des produits commandés.
+
+                 DIV recevra les informations des produits récupérées depuis le panier. -->
     <h3>Vos produits</h3>
     <div id="details-produits"></div>
 
+
+     <!-- TOTAL DE LA COMMANDE
+                 La classe total-commande permet de personnaliser l'affichage du montant total.
+                 SPAN isole le montant afin que JavaScript puisse le modifier. -->
     <p class="total-commande">
         Total : <span id="total-commande"></span>
     </p>
 
+
+    <!-- MESSAGE INFORMATIF
+                 Cette mention précise qu'il s'agit d'une démonstration sans paiement réel. -->
     <p class="note-commande">
         Démonstration : aucun paiement ne sera effectué.
     </p>
 
+
+     <!-- BOUTON DE CONFIRMATION
+                 TYPE="button" indique que ce bouton ne soumet pas le formulaire.
+                 ID permet à JavaScript de détecter le clic sur ce bouton.
+                 La classe btn btn-principal applique le style principal.
+
+                 JavaScript peut utiliser cet événement pour passer à l'étape de confirmation finale. -->
     <button type="button" id="confirmer-commande"
             class="btn btn-principal">
         Confirmer ma commande
     </button>
 
+
+    <!-- BOUTON DE MODIFICATION
+                 Ce bouton permet de revenir aux informations saisies pour effectuer une correction.
+
+                 TYPE="button" évite une soumission du formulaire.
+                 ID permet au JavaScript de retrouver cet élément.
+                 La classe btn-vider-panier est réutilisée pour son apparence CSS. -->
     <button type="button" id="modifier-commande"
             class="btn-vider-panier">
         Modifier mes informations
@@ -124,41 +266,80 @@
 </section>
 
 
+<!-- SECTION DE CONFIRMATION FINALE
+             SECTION regroupe les informations affichées après confirmation.
+             ID permet au JavaScript de retrouver cette zone.
+             HIDDEN masque initialement la section.
+
+             Elle devient visible lorsque la commande de démonstration est confirmée par le visiteur. -->
 <section id="confirmation-finale" hidden>
     <h2>Merci pour votre commande !</h2>
 
+
+     <!-- MESSAGE DE CONFIRMATION
+                 JavaScript peut personnaliser ce message en fonction des informations de la commande. -->
     <p id="message-confirmation"></p>
 
+
+    <!-- RÉCAPITULATIF FINAL
+                 DIV regroupe les informations définitives de la commande.
+                 La classe recap-confirmation permet de mettre en forme cet ensemble en CSS. -->
     <div class="recap-confirmation">
+
+
+         <!-- NUMÉRO DE COMMANDE
+                     STRONG met en évidence l'intitulé.
+                     SPAN permet d'afficher dynamiquement le numéro généré par JavaScript. -->
         <p>
             <strong>Numéro de commande :</strong>
             <span id="numero-commande"></span>
         </p>
 
+
+        <!-- DATE DE RETRAIT
+                     Le contenu de ce SPAN sera renseigné par JavaScript. -->
         <p>
             <strong>Date de retrait :</strong>
             <span id="date-confirmation"></span>
         </p>
 
+
+         <!-- CRÉNEAU DE RETRAIT
+                     Cet identifiant permet d'afficher le créneau choisi. -->
         <p>
             <strong>Créneau souhaité :</strong>
             <span id="heure-confirmation"></span>
         </p>
 
+
+        <!-- PRODUITS CONFIRMÉS
+                     H3 introduit la liste finale des produits.
+                     DIV sert de conteneur pour les détails générés en JavaScript. -->
         <h3>Votre commande</h3>
         <div id="produits-confirmation"></div>
 
+
+         <!-- TOTAL FINAL
+                     SPAN permet d'afficher le montant total de la commande confirmée. -->
         <p class="total-commande">
             Total : <span id="total-confirmation"></span>
         </p>
     </div>
 
+
+     <!-- AVERTISSEMENT SUR LA DÉMONSTRATION
+                 Cette information précise les limites fonctionnelles du projet.
+                 Il n'y a ni transmission réelle de commande ni paiement. -->
     <p class="note-commande">
         Commande de démonstration uniquement :
         aucune commande n'a été transmise à la boulangerie
         et aucun paiement n'a été effectué.
     </p>
 
+
+    <!-- LIEN DE RETOUR AU CATALOGUE
+                 A permet de naviguer vers carte.html.
+                 Les classes btn et btn-principal permettent de lui donner l'apparence d'un bouton principal. -->
     <a href="carte.html" class="btn btn-principal">
         Retour à la carte
     </a>
@@ -166,7 +347,7 @@
 
     </main>
 
-    <footer> class="pied-page">
+    <footer class="pied-page">
     <p class="signature-footer">Le Fournil</p>
     <p>© 2026 Le Fournil — Boulangerie artisanale</p>
     </footer>

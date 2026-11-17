@@ -5,7 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon panier - Le Fournil</title>
+
+    <!-- LIAISON AVEC LE FICHIER CSS
+         LINK permet de relier le document HTML à une feuille de style externe.
+         rel="stylesheet" indique qu'il s'agit d'un fichier CSS.
+         href indique le chemin d'accès au fichier.
+         CSS gère la présentation visuelle du panier. -->
     <link rel="stylesheet" href="./assets/CSS/style.css">
+
+    <!-- CHARGEMENT DU JAVASCRIPT
+         SCRIPT permet d'intégrer un fichier JavaScript externe.
+         src indique le chemin du fichier panier.js.
+         defer permet au navigateur de télécharger le script sans bloquer l'analyse du HTML, puis de l'exécuter après l'analyse du document.
+
+         Ce fichier JavaScript gère notamment :
+         - La lecture des produits enregistrés.
+         - L'affichage des articles dans le panier.
+         - Le calcul du total.
+         - La modification des quantités.
+         - La suppression des produits.
+         - La mise à jour du compteur du panier. -->
     <script src="./assets/JS/panier.js" defer></script>
 </head>
 <body>
@@ -23,6 +42,14 @@
             <li><a href="index.html">Accueil</a></li>
             <li><a href="carte.html">La carte</a></li>
             <li><a href="contact.html">Contact</a></li>
+
+            <!-- ACCÈS AU PANIER
+                     Le lien renvoie vers la page panier.html.
+                     SPAN permet d'afficher le nombre d'articles présents dans le panier.
+
+                     data-compteur-panier est un attribut HTML personnalisé.
+                     JavaScript recherche cet attribut pour mettre à jour le compteur.
+                     La valeur initiale affichée est 0. -->
             <li><a href="panier.html">Mon panier 🛒
                 <span class="compteur-panier" data-compteur-panier>0</span>
             </a></li>
@@ -33,20 +60,68 @@
 <main class="page-panier">
     <h1>Mon panier</h1>
 
+
+     <!-- CONTENEUR DYNAMIQUE DES PRODUITS
+             DIV est un conteneur générique.
+             ID="liste-panier" identifie cet élément de manière unique.
+
+             JavaScript utilise cet identifiant pour retrouver cette zone et y afficher dynamiquement les produits ajoutés au panier.
+
+             Le contenu sera construit et inséré par le fichier panier.js.
+             Il peut notamment contenir le nom, le prix et la quantité de chaque produit. -->
     <div id="liste-panier"></div>
 
+
+    <!-- MESSAGE DU PANIER
+             P représente un paragraphe.
+             ID="message-panier" permet à JavaScript de retrouver cet élément.
+
+             Le message initial indique que le panier est vide.
+             JavaScript peut modifier ce texte selon le contenu du panier. -->
     <p id="message-panier">Ton panier est vide.</p>
 
+
+    <!-- AFFICHAGE DU TOTAL
+             H2 représente un titre de deuxième niveau.
+             SPAN permet d'isoler le montant pour pouvoir le modifier séparément.
+
+             ID="total-panier" permet au JavaScript de retrouver précisément cet élément et d'y afficher le montant calculé.
+
+             La valeur initiale est 0,00 €.
+             JavaScript actualise ce montant selon les produits et quantités. -->
     <h2>Total : <span id="total-panier">0,00 €</span></h2>
 
+
+    <!-- LIEN POUR PASSER COMMANDE
+             A crée un lien de navigation vers une autre page.
+             href="commande.html" dirige le visiteur vers le formulaire de commande.
+             Les classes btn et btn-principal permettent de mettre en forme le lien comme un bouton principal avec le CSS.
+
+             ID="passer-commande" permet de retrouver cet élément en JavaScript si l'on souhaite contrôler son comportement.
+
+             ATTENTION : il s'agit d'un lien et non d'un bouton HTML de soumission. -->
     <a href="commande.html" class="btn btn-principal" id="passer-commande">
     Passer commande
     </a>
 
 
+
+     <!-- LIEN POUR CONTINUER LES ACHATS
+             Ce lien permet de retourner à carte.html afin de consulter les produits et d'en ajouter de nouveaux au panier.
+             btn et btn-secondaire correspondent aux classes de mise en forme CSS. -->
     <a class="btn btn-secondaire" href="carte.html">
         Continuer mes achats
     </a>
+
+     <!-- BOUTON POUR VIDER LE PANIER
+             BUTTON crée un élément interactif.
+             TYPE="button" indique qu'il ne doit pas soumettre un formulaire.
+             ID="vider-panier" permet au JavaScript de retrouver ce bouton.
+
+             La classe btn-vider-panier permet de définir son apparence en CSS.
+
+             Le fichier panier.js peut écouter le clic sur ce bouton et supprimer les produits enregistrés dans le panier.
+             Une confirmation peut être demandée avant la suppression. -->
     <button type="button" id="vider-panier" class="btn-vider-panier">Vider le panier</button>
 
 </main>

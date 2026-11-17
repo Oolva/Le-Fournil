@@ -1,3 +1,12 @@
+/* ============================================================
+   IMPORTATION DES POLICES GOOGLE FONTS
+   ============================================================ */
+
+/*
+   @import permet de charger des polices depuis Google Fonts.
+   Montserrat est utilisée pour les textes courants.
+   Playfair Display est utilisée pour les titres.
+*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 
@@ -6,32 +15,60 @@
    1. VARIABLES ET RÉGLAGES GÉNÉRAUX
    =================================== */
 
+   /*
+   :root représente l'élément racine du document HTML.
+   On y déclare des variables CSS globales, réutilisables dans toute la feuille de style avec var(--nom-variable).
+
+   L'intérêt est de pouvoir modifier facilement les couleurs, les polices ou les espacements sur l'ensemble du site.
+*/
 :root {
+    /* Couleurs de la charte graphique du Fournil */
     --terracotta: #A64B35;
     --brun: #4A2E24;
     --ivoire: #FFF7EB;
     --miel: #D9A15B;
     --beige: #E9D8C3;
 
+    /* Polices de caractères */
     --police-titres: "Playfair Display", Georgia, serif;
     --police-texte: "Montserrat", Arial, sans-serif;
 
+    /* Réglages communs */
     --arrondi: 8px;
     --espace: 24px;
 
+     /* Ombres appliquées aux cartes */
     --ombre-carte: 0 4px 14px rgb(74 46 36 / 7%);
     --ombre-carte-survol: 0 8px 20px rgb(74 46 36 / 12%);
+
+     /* Durée et type d'animation */
     --transition-douce: 0.2s ease;
 }
 
+
+/*
+   Le sélecteur universel * cible tous les éléments HTML.
+   box-sizing: border-box permet d'inclure les bordures et les espacements internes dans la largeur et la hauteur.
+   Cela facilite le calcul des dimensions des éléments.
+*/
 * {
     box-sizing: border-box;
 }
 
+
+/*
+   html cible la racine du document.
+   scroll-behavior: smooth active un défilement fluide lorsqu'on clique sur un lien interne, par exemple #tarifs.
+*/
 html {
     scroll-behavior: smooth;
 }
 
+
+/*
+   body correspond au contenu visible de la page.
+   Ces propriétés définissent l'apparence générale du site.
+*/
 body {
     margin: 0;
     background: var(--ivoire);
@@ -46,6 +83,11 @@ body {
    2. ÉLÉMENTS HTML COMMUNS
    ========================================================= */
 
+
+/*
+   Plusieurs sélecteurs peuvent être regroupés avec une virgule.
+   Ici, les règles communes s'appliquent aux titres h1, h2 et h3.
+*/
 h1,
 h2,
 h3 {
@@ -55,6 +97,11 @@ h3 {
     line-height: 1.2;
 }
 
+
+/*
+   clamp() permet de définir une taille responsive : une taille minimale, une taille évolutive et une taille maximale.
+   Le titre s'adapte ainsi à la largeur de l'écran.
+*/
 h1 {
     font-size: clamp(2.2rem, 5vw, 3.25rem);
 }
@@ -67,20 +114,35 @@ h3 {
     font-size: 1.3rem;
 }
 
+
+/* Supprime la marge supérieure par défaut des paragraphes. */
 p {
     margin-top: 0;
 }
 
+
+/* Définit la couleur générale des liens hypertextes. */
 a {
     color: var(--terracotta);
 }
 
+
+/*
+   img cible toutes les images du site.
+   max-width: 100% évite qu'une image dépasse de son conteneur.
+   height: auto conserve les proportions originales.
+*/
 img {
     display: block;
     max-width: 100%;
     height: auto;
 }
 
+
+/*
+   .surtitre est une classe personnalisée utilisée pour les petits textes introductifs au-dessus des titres.
+   text-transform transforme les lettres en majuscules.
+*/
 .surtitre {
     margin-bottom: 10px;
     color: var(--terracotta);
@@ -95,6 +157,11 @@ img {
    3. BOUTONS COMMUNS
    ========================================================= */
 
+
+/*
+   .btn est une classe commune aux boutons du site.
+   Elle définit leur forme, leur espacement et leur comportement.
+*/
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -106,7 +173,12 @@ img {
     text-align: center;
     text-decoration: none;
 
-    cursor: pointer;
+    cursor: pointer; /* Affiche une main au survol */
+    
+    
+    /*
+       transition permet d'animer progressivement les changements de couleur, de bordure et de position.
+    */
     transition:
         background-color var(--transition-douce),
         color var(--transition-douce),
@@ -114,23 +186,34 @@ img {
         transform var(--transition-douce);
 }
 
+
+/* Bouton principal : fond terracotta et texte blanc. */
 .btn-principal {
     background: var(--terracotta);
     color: #fff;
 }
 
+
+/*
+   :hover correspond au survol avec la souris.
+   :focus-visible correspond à la mise au focus, notamment lors d'une navigation au clavier.
+*/
 .btn-principal:hover,
 .btn-principal:focus-visible {
     background: var(--brun);
     color: #fff;
 }
 
+
+/* Bouton secondaire : fond transparent et contour terracotta. */
 .btn-secondaire {
     border-color: var(--terracotta);
     background: transparent;
     color: var(--terracotta);
 }
 
+
+/* Apparence du bouton secondaire lorsqu'il est survolé ou sélectionné. */
 .btn-secondaire:hover,
 .btn-secondaire:focus-visible {
     background: var(--beige);
@@ -141,9 +224,14 @@ img {
    4. EN-TÊTE, LOGO ET NAVIGATION
    ========================================================= */
 
+
+/*
+   .entete correspond à l'en-tête du site.
+   display: flex active Flexbox, un système de mise en page permettant d'aligner les éléments horizontalement ou verticalement.
+*/
 .entete {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Autorise le retour à la ligne */
     align-items: center;
     justify-content: space-between;
     gap: 20px 28px;
@@ -155,6 +243,8 @@ img {
     background: var(--ivoire);
 }
 
+
+/* Conteneur du logo et de son texte. */
 .logo {
     display: inline-flex;
     flex: 0 0 auto;
@@ -165,6 +255,9 @@ img {
     text-decoration: none;
 }
 
+
+
+/* Dimensions et couleur du motif graphique du logo. */
 .logo-motif {
     flex: 0 0 auto;
     width: 78px;
@@ -172,30 +265,44 @@ img {
     color: var(--miel);
 }
 
+
+/*
+   Le texte du logo est organisé en colonne : le nom de la boulangerie apparaît au-dessus de la signature.
+*/
 .logo-texte {
     display: flex;
     flex-direction: column;
     line-height: 1.15;
 }
 
+
+/* Mise en forme du nom de la boulangerie. */
 .logo .logo-nom {
     font-family: var(--police-titres);
     font-size: 1.8rem;
     font-weight: 700;
 }
 
+
+/* Mise en forme de la signature sous le nom du logo. */
 .logo .logo-signature {
     margin-top: 4px;
     font-size: 0.76rem;
     letter-spacing: 0.04em;
 }
 
+
+/*
+   Sélecteur descendant : cible la balise nav située à l'intérieur de .entete.
+*/
 .entete nav {
     display: block;
     flex: 1 1 400px;
     min-width: 0;
 }
 
+
+/* Mise en page de la liste des liens de navigation. */
 .entete nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -205,13 +312,17 @@ img {
 
     margin: 0;
     padding: 0;
-    list-style: none;
+    list-style: none; /* Supprime les puces de la liste */
 }
 
+
+/* Chaque élément de la liste de navigation. */
 .entete nav li {
     display: block;
 }
 
+
+/* Apparence des liens du menu principal. */
 .entete nav a {
     display: inline-block;
     padding: 8px 4px;
@@ -222,12 +333,20 @@ img {
     text-decoration: none;
 }
 
+
+/*
+   Les liens changent de couleur au survol, au focus clavier ou lorsqu'ils correspondent à la page actuelle.
+   aria-current="page" est un attribut HTML d'accessibilité
+   qui indique la page actuellement consultée.
+*/
 .entete nav a:hover,
 .entete nav a:focus-visible,
 .entete nav a[aria-current="page"] {
     color: var(--terracotta);
 }
 
+
+/* Souligne le lien correspondant à la page active. */
 .entete nav a[aria-current="page"] {
     text-decoration: underline;
     text-underline-offset: 5px;
@@ -258,7 +377,7 @@ img {
    5. PAGE D'ACCUEIL — index.html
    ========================================================= */
 
-/* Bannière d'accueil */
+/* Bannière principale de la page d'accueil */
 .hero {
     display: flex;
     flex-direction: column;
@@ -276,16 +395,22 @@ img {
     text-align: center;
 }
 
+
+/* Limite la largeur du titre dans la bannière. */
 .hero h1 {
     max-width: 780px;
     margin-bottom: 4px;
 }
 
+
+/* Limite la largeur du texte de présentation. */
 .hero p:not(.surtitre) {
     max-width: 650px;
     margin-bottom: 8px;
 }
 
+
+/* Ajuste l'espacement du surtitre dans la bannière. */
 .hero .surtitre {
     margin-bottom: 0;
 }
@@ -293,6 +418,13 @@ img {
 /* Bloc photo et texte de présentation */
 .photo-vitrine {
     display: grid;
+
+    /*
+       CSS Grid permet de créer une grille en colonnes.
+       Ici, la première colonne est légèrement plus large
+       que la seconde.
+       minmax(0, ...) évite les débordements de contenu.
+    */
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
     align-items: center;
     gap: 40px;
@@ -302,42 +434,62 @@ img {
     margin: 64px auto;
 }
 
+
+/* Image du bloc de présentation. */
 .photo-vitrine img {
     width: 100%;
     height: 360px;
     border-radius: var(--arrondi);
-    object-fit: cover;
+    object-fit: cover; 
+    /*
+    object-fit: cover remplit le cadre sans déformer l'image. Une partie de l'image peut être recadrée.
+    */
 }
 
+
+/* Espacement sous le titre du bloc de présentation. */
 .photo-texte h2 {
     margin-bottom: 14px;
 }
 
+
+/* Limite la largeur du texte pour faciliter la lecture. */
 .photo-texte p:not(.surtitre) {
     max-width: 560px;
 }
 
-/* Produits mis en avant sur la page d'accueil */
+/* Section des produits mis en avant sur la page d'accueil */
 .incontournables {
     width: 88%;
     max-width: 1200px;
     margin: 72px auto;
 }
 
+
+/* Zone d'introduction de la section des produits. */
 .incontournables-intro {
     max-width: 680px;
     margin: 0 auto 32px;
     text-align: center;
 }
 
+
+/* Espacement sous le titre de la section. */
 .incontournables-intro h2 {
     margin-bottom: 12px;
 }
 
+
+/* Supprime la marge du dernier paragraphe de l'introduction. */
 .incontournables-intro > p:last-child {
     margin-bottom: 0;
 }
 
+
+/*
+   Grille de trois colonnes pour présenter les produits.
+   repeat(3, ...) crée trois colonnes de largeur égale.
+*/
 .grille-produits {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -345,6 +497,8 @@ img {
     width: 100%;
 }
 
+
+/* Carte individuelle d'un produit sur la page d'accueil. */
 .produit-accueil {
     min-width: 0;
     overflow: hidden;
@@ -359,36 +513,48 @@ img {
         box-shadow var(--transition-douce);
 }
 
+
+/* Effet visuel au survol d'une carte produit. */
 .produit-accueil:hover {
     transform: translateY(-4px);
     box-shadow: var(--ombre-carte-survol);
 }
 
+
+/* Image de chaque produit mis en avant. */
 .produit-accueil img {
     width: 100%;
     height: 230px;
     object-fit: cover;
 }
 
+
+/* Espacement intérieur du contenu de la carte. */
 .produit-accueil .produit-contenu {
     padding: 20px;
 }
 
+
+/* Espacement sous le titre du produit. */
 .produit-contenu h3 {
     margin-bottom: 10px;
 }
 
+
+/* Mise en forme du texte descriptif du produit. */
 .produit-contenu p {
     margin-bottom: 0;
     font-size: 0.95rem;
 }
 
+
+/* Positionnement du bouton sous la grille des produits. */
 .incontournables-action {
     margin-top: 30px;
     text-align: center;
 }
 
-/* Bloc savoir-faire */
+/* Bloc consacré au savoir-faire de la boulangerie. */
 .savoir-faire {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -400,6 +566,8 @@ img {
     margin: 72px auto;
 }
 
+
+/* Photographie du bloc savoir-faire. */
 .savoir-faire-photo img {
     width: 100%;
     height: 390px;
@@ -407,14 +575,20 @@ img {
     object-fit: cover;
 }
 
+
+/* Espacement sous le titre du bloc savoir-faire. */
 .savoir-faire-texte h2 {
     margin-bottom: 16px;
 }
 
+
+/* Limite la largeur du paragraphe descriptif. */
 .savoir-faire-texte p:not(.surtitre) {
     max-width: 620px;
 }
 
+
+/* Ajoute un espace au-dessus du bouton. */
 .savoir-faire-texte .btn {
     margin-top: 8px;
 }
@@ -431,7 +605,10 @@ main > h1 {
     margin: 44px auto 32px;
 }
 
-/* Produits phares : cartes et boutons alignés */
+/*
+   Grille des produits phares.
+   Les cartes sont étirées sur la même hauteur grâce à align-items: stretch.
+*/
 .produits-phares {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -443,6 +620,12 @@ main > h1 {
     margin: 0 auto 64px;
 }
 
+
+/*
+   Chaque article représente une carte produit.
+   Flexbox organise les éléments verticalement.
+   height: 100% permet à la carte d'occuper toute la hauteur disponible.
+*/
 .produits-phares article {
     display: flex;
     flex-direction: column;
@@ -461,11 +644,15 @@ main > h1 {
         box-shadow var(--transition-douce);
 }
 
+
+/* Effet de soulèvement au survol des cartes. */
 .produits-phares article:hover {
     transform: translateY(-4px);
     box-shadow: var(--ombre-carte-survol);
 }
 
+
+/* Titre de chaque carte produit. */
 .produits-phares article h2 {
     display: flex;
     align-items: center;
@@ -478,6 +665,8 @@ main > h1 {
     text-align: center;
 }
 
+
+/* Image de chaque produit phare. */
 .produits-phares article img {
     display: block;
     flex-shrink: 0;
@@ -491,11 +680,15 @@ main > h1 {
     object-position: center;
 }
 
+
+/* Taille et hauteur de ligne des descriptions. */
 .produits-phares article p {
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
+
+/* Supprime la marge du dernier paragraphe de chaque carte. */
 .produits-phares article p:last-of-type {
     margin-bottom: 0;
 }
@@ -518,17 +711,24 @@ main > h1 {
     margin: 64px auto;
 }
 
+
+/* Centre le titre de la section des pains. */
 .section-pains > h2 {
     margin-bottom: 28px;
     text-align: center;
 }
 
+
+/* Grille de présentation des pains. */
 .grille-pains {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
 }
 
+
+
+/* Carte individuelle d'un pain. */
 .carte-pain {
     overflow: hidden;
 
@@ -542,17 +742,23 @@ main > h1 {
         box-shadow var(--transition-douce);
 }
 
+
+/* Effet de survol des cartes de pains. */
 .carte-pain:hover {
     transform: translateY(-4px);
     box-shadow: var(--ombre-carte-survol);
 }
 
+
+/* Image du pain. */
 .carte-pain img {
     width: 100%;
     height: 230px;
     object-fit: cover;
 }
 
+
+/* Titre du pain, centré dans sa carte. */
 .carte-pain h3 {
     margin: 0;
     padding: 18px;
@@ -564,23 +770,34 @@ main > h1 {
     width: 88%;
     max-width: 1000px;
     margin: 64px auto 80px;
+
+    /*
+       scroll-margin-top ajoute une marge lors de l'arrivée
+       sur cette section par un lien d'ancre comme #tarifs.
+    */
     scroll-margin-top: 24px;
 }
 
+
+/* Centre le titre du tableau des tarifs. */
 .section-tarifs > h2 {
     margin-bottom: 20px;
     text-align: center;
 }
 
+
+/* Mise en forme générale du tableau HTML. */
 .section-tarifs table {
     width: 100%;
     margin: 24px 0;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Fusionne les bordures des cellules */
 
     background: var(--ivoire);
     color: var(--brun);
 }
 
+
+/* Légende du tableau, définie avec la balise caption. */
 .section-tarifs caption {
     padding: 12px;
     color: var(--brun);
@@ -588,6 +805,8 @@ main > h1 {
     text-align: left;
 }
 
+
+/* Cellules d'en-tête (th) et cellules de données (td). */
 .section-tarifs th,
 .section-tarifs td {
     padding: 12px;
@@ -595,15 +814,23 @@ main > h1 {
     text-align: left;
 }
 
+
+/* En-têtes du tableau avec un fond terracotta. */
 .section-tarifs th {
     background: var(--terracotta);
     color: #fff;
 }
 
+
+/*
+   nth-child(even) cible une ligne sur deux, ici les lignes paires du corps du tableau.
+*/
 .section-tarifs tbody tr:nth-child(even) {
     background: var(--beige);
 }
 
+
+/* Change la couleur d'une ligne lorsque la souris la survole. */
 .section-tarifs tbody tr:hover {
     background: #f2e3d1;
 }
@@ -613,11 +840,13 @@ main > h1 {
    7. PAGE CONTACT — contact.html
    ========================================================= */
 
+
+/* Conteneur principal de la page contact. */
 .page-contact {
     padding: 0 6% 64px;
 }
 
-/* Introduction de la page */
+/* Introduction de la page, organisée verticalement et centrée.*/
 .page-contact .contact-intro-vertical {
     display: flex;
     flex-direction: column;
@@ -630,20 +859,26 @@ main > h1 {
     text-align: center;
 }
 
+
+/* Espacement sous le surtitre de l'introduction. */
 .page-contact .contact-intro-vertical .surtitre {
     margin-bottom: 12px;
 }
 
+
+/* Largeur maximale du texte introductif. */
 .page-contact .contact-intro-vertical .texte-intro-contact {
     max-width: 650px;
     margin-bottom: 18px;
 }
 
+
+/* Supprime les marges du titre principal de l'introduction. */
 .page-contact .contact-intro-vertical h1 {
     margin: 0;
 }
 
-/* Cartes d'informations */
+/* Grille contenant les cartes d'informations pratiques. */ 
 .page-contact .contact-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -654,6 +889,8 @@ main > h1 {
     margin: 0 auto 48px;
 }
 
+
+/* Présentation visuelle d'une carte d'information. */
 .page-contact .contact-card {
     min-width: 0;
     padding: 28px;
@@ -664,29 +901,39 @@ main > h1 {
     box-shadow: var(--ombre-carte);
 }
 
+
+/* Titres des cartes d'informations. */
 .page-contact .contact-card h2 {
     margin-bottom: 20px;
     font-size: 1.5rem;
 }
 
+
+/* Espacement entre les paragraphes des cartes. */
 .page-contact .contact-card p {
     margin-bottom: 18px;
 }
 
+
+/* Supprime la marge du dernier paragraphe. */
 .page-contact .contact-card p:last-child {
     margin-bottom: 0;
 }
 
+
+/* Met en valeur les éléments importants avec strong. */
 .page-contact .contact-card strong {
     color: var(--terracotta);
 }
 
+
+/* Style spécifique de la note concernant les horaires. */
 .page-contact .contact-card .note-horaires {
     color: var(--brun);
     font-style: italic;
 }
 
-/* Formulaire de contact */
+/* Formulaire de contact : largeur limitée et centré. */
 .page-contact .formulaire-contact {
     width: 100%;
     max-width: 800px;
@@ -699,30 +946,48 @@ main > h1 {
     box-shadow: var(--ombre-carte);
 }
 
+
+/* Espacement sous le titre du formulaire. */
 .page-contact .formulaire-contact h2 {
     margin-bottom: 10px;
 }
 
+
+/* Espacement sous le texte introductif du formulaire. */
 .page-contact .formulaire-contact > p {
     margin-bottom: 24px;
 }
 
+
+/*
+   Le formulaire utilise CSS Grid.
+   gap crée un espace régulier entre les champs.
+*/
 .page-contact .formulaire-contact form {
     display: grid;
     gap: 18px;
 }
 
+
+/* Chaque champ est organisé verticalement : label puis saisie. */
 .page-contact .formulaire-contact .champ {
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
 
+
+/* Apparence des étiquettes des champs. */
 .page-contact .formulaire-contact label {
     color: var(--brun);
     font-weight: 600;
 }
 
+
+/*
+   Les sélecteurs input et textarea ciblent les zones de saisie et les zones de texte du formulaire.
+   font: inherit reprend la police définie sur le parent.
+*/
 .page-contact .formulaire-contact input,
 .page-contact .formulaire-contact textarea {
     width: 100%;
@@ -736,11 +1001,15 @@ main > h1 {
     font: inherit;
 }
 
+
+/* Hauteur minimale de la zone de message. */
 .page-contact .formulaire-contact textarea {
     min-height: 140px;
-    resize: vertical;
+    resize: vertical; /* Autorise le redimensionnement en hauteur */
 }
 
+
+/* Mise en évidence du champ actif lorsque l'utilisateur le sélectionne. */
 .page-contact .formulaire-contact input:focus,
 .page-contact .formulaire-contact textarea:focus {
     outline: 2px solid var(--terracotta);
@@ -748,6 +1017,8 @@ main > h1 {
     border-color: var(--terracotta);
 }
 
+
+/* Aligne le bouton du formulaire au début de la ligne. */
 .page-contact .formulaire-contact button {
     justify-self: start;
 }
@@ -757,6 +1028,8 @@ main > h1 {
    8. PAGE PANIER — panier.html
    ========================================================= */
 
+
+   /* Conteneur principal de la page panier. */
 .page-panier {
     width: 88%;
     max-width: 1000px;
@@ -770,6 +1043,9 @@ main > h1 {
     box-shadow: 0 4px 16px rgb(74 46 36 / 10%);
 }
 
+
+
+/* Titres principaux de la page panier. */
 .page-panier > h1,
 .page-panier h1 {
     margin-bottom: 12px;
@@ -777,6 +1053,8 @@ main > h1 {
     text-align: center;
 }
 
+
+/* Titres secondaires de la page panier. */
 .page-panier h2 {
     margin-top: 30px;
     color: var(--terracotta);
@@ -794,6 +1072,12 @@ main > h1 {
     text-align: center;
 }
 
+
+/*
+   [hidden] est un sélecteur d'attribut.
+   Il cible les éléments HTML qui possèdent l'attribut hidden.
+   Cette règle garantit qu'ils ne sont pas affichés.
+*/
 #message-panier[hidden] {
     display: none;
 }
@@ -823,6 +1107,8 @@ main > h1 {
     background: #fff;
 }
 
+
+/* Nom du produit dans la ligne du panier. */
 .ligne-panier h3 {
     flex: 1 1 200px;
     margin: 0;
@@ -831,12 +1117,16 @@ main > h1 {
     font-size: 1.1rem;
 }
 
+
+/* Prix ou informations tarifaires dans la ligne du panier. */
 .ligne-panier p {
     margin: 0;
     color: var(--terracotta);
     font-weight: 700;
 }
 
+
+/* Mise en valeur des quantités et informations dans les span. */
 .ligne-panier span {
     color: var(--brun);
     font-weight: 700;
@@ -860,6 +1150,8 @@ main > h1 {
         border-color var(--transition-douce);
 }
 
+
+/* Apparence des boutons du panier au survol. */
 .ligne-panier button:hover {
     border-color: var(--terracotta);
     background: var(--terracotta);
@@ -899,6 +1191,8 @@ main > h1 {
         color var(--transition-douce);
 }
 
+
+/* Apparence du bouton vider le panier au survol. */
 .btn-vider-panier:hover {
     background: var(--terracotta);
     color: #fff;
@@ -909,12 +1203,14 @@ main > h1 {
    9. FORMULAIRE DE COMMANDE ET CONFIRMATION
    ========================================================= */
 
-/* Formulaire de commande */
+/* Limite la largeur du formulaire de commande et le centre. */
 #formulaire-commande {
     max-width: 650px;
     margin: 30px auto 0;
 }
 
+
+/* Organisation verticale de chaque champ de commande. */
 .champ-commande {
     display: flex;
     flex-direction: column;
@@ -922,11 +1218,15 @@ main > h1 {
     margin-bottom: 20px;
 }
 
+
+/* Étiquettes des champs du formulaire. */
 .champ-commande label {
     color: var(--brun);
     font-weight: 700;
 }
 
+
+/* Champs de saisie et listes déroulantes du formulaire. */
 .champ-commande input,
 .champ-commande select {
     width: 100%;
@@ -940,12 +1240,16 @@ main > h1 {
     font: inherit;
 }
 
+
+/* Mise en évidence du champ sélectionné. */
 .champ-commande input:focus,
 .champ-commande select:focus {
     outline: 2px solid var(--miel);
     outline-offset: 2px;
 }
 
+
+/* Bloc de note ou d'information concernant la commande. */
 .note-commande {
     padding: 12px;
     border-radius: 8px;
@@ -954,7 +1258,9 @@ main > h1 {
     font-size: 0.9rem;
 }
 
-/* Récapitulatif et confirmation */
+/*
+   Les deux sections ont une présentation commune : le récapitulatif de commande et la confirmation finale.
+*/
 #recapitulatif-commande,
 #confirmation-finale {
     margin-top: 30px;
@@ -965,11 +1271,15 @@ main > h1 {
     background: #fff;
 }
 
+
+/* Titres des blocs de récapitulatif et de confirmation. */
 #recapitulatif-commande h2,
 #confirmation-finale h2 {
     color: var(--terracotta);
 }
 
+
+/* Zones contenant les coordonnées du client et les produits. */
 #details-client,
 #details-produits {
     padding: 12px 18px;
@@ -977,12 +1287,16 @@ main > h1 {
     background: var(--ivoire);
 }
 
+
+/* Paragraphes des détails client et produits. */
 #details-client p,
 #details-produits p {
     margin: 10px 0;
     color: var(--brun);
 }
 
+
+/* Mise en valeur du total de la commande. */
 .total-commande {
     margin-top: 24px;
     padding: 16px;
@@ -995,18 +1309,24 @@ main > h1 {
     font-weight: 700;
 }
 
+
+/* Espacement au-dessus des boutons du récapitulatif. */
 #recapitulatif-commande button {
     margin-top: 12px;
 }
 
-/* Respecte l'attribut hidden utilisé par le JavaScript */
+/*
+   Ces règles sont importantes pour le fonctionnement du JavaScript.
+   Lorsque le script ajoute l'attribut hidden à une section,
+   elle disparaît de l'affichage.
+*/
 #recapitulatif-commande[hidden],
 #confirmation-finale[hidden],
 #formulaire-commande[hidden] {
     display: none;
 }
 
-/* Détails de la confirmation de commande */
+/* Conteneur des informations affichées après confirmation. */
 .recap-confirmation {
     margin: 24px 0;
     padding: 20px;
@@ -1016,16 +1336,25 @@ main > h1 {
     background: var(--ivoire);
 }
 
+
+/* Titres secondaires du récapitulatif final. */
 .recap-confirmation h3 {
     margin-top: 24px;
     color: var(--terracotta);
 }
 
+
+/* Paragraphes du récapitulatif final. */
 .recap-confirmation > p {
     margin: 12px 0;
     color: var(--brun);
 }
 
+
+/*
+   Les paragraphes contenant les produits sont organisés horizontalement avec Flexbox.
+   justify-content: space-between éloigne les deux éléments.
+*/
 #produits-confirmation p {
     display: flex;
     justify-content: space-between;
@@ -1036,11 +1365,15 @@ main > h1 {
     color: var(--brun);
 }
 
+
+/* Mise en valeur du numéro de commande. */
 #numero-commande {
     color: var(--terracotta);
     font-weight: 700;
 }
 
+
+/* Présentation du total dans la confirmation finale. */
 .recap-confirmation .total-commande {
     display: block;
     min-height: 0;
@@ -1054,6 +1387,8 @@ main > h1 {
     font-weight: 700;
 }
 
+
+/* Le montant lui-même reste affiché en blanc. */
 #total-confirmation {
     display: inline;
     color: #fff;
@@ -1064,6 +1399,11 @@ main > h1 {
    10. PIED DE PAGE COMMUN
    ========================================================= */
 
+
+/*
+   .pied-page correspond au footer HTML.
+   Flexbox permet de répartir la signature et les liens sur une même ligne lorsque l'espace est suffisant.
+*/
 .pied-page {
     display: flex;
     flex-wrap: wrap;
@@ -1078,10 +1418,15 @@ main > h1 {
     color: var(--ivoire);
 }
 
+
+
+/* Supprime les marges des paragraphes du pied de page. */
 .pied-page p {
     margin: 0;
 }
 
+
+/* Signature de la boulangerie dans le pied de page. */
 .pied-page .signature-footer {
     color: var(--ivoire);
     font-family: var(--police-titres);
@@ -1089,6 +1434,8 @@ main > h1 {
     font-weight: 700;
 }
 
+
+/* Organisation horizontale des liens du pied de page. */
 .pied-page nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -1099,11 +1446,15 @@ main > h1 {
     list-style: none;
 }
 
+
+/* Couleur et décoration des liens du pied de page. */
 .pied-page a {
     color: var(--ivoire);
     text-decoration: none;
 }
 
+
+/* Changement de couleur et soulignement au survol ou au focus. */
 .pied-page a:hover,
 .pied-page a:focus-visible {
     color: var(--miel);
@@ -1116,32 +1467,53 @@ main > h1 {
    11. RESPONSIVE — TABLETTES
    ========================================================= */
 
+
+/*
+   @media permet d'appliquer des règles CSS selon les caractéristiques de l'écran.
+
+   max-width: 900px signifie que les règles suivantes s'appliquent lorsque la largeur de l'écran est de 900 px ou moins, par exemple sur certaines tablettes.
+*/
 @media (max-width: 900px) {
+
+/*
+    Les grilles de trois colonnes passent à deux colonnes.
+    Cela évite que les cartes deviennent trop étroites.
+*/
     .grille-produits,
     .produits-phares,
     .grille-pains {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+
+/* Réduit les espaces entre les colonnes des blocs. */
     .photo-vitrine,
     .savoir-faire {
         gap: 28px;
     }
 
+
+/* Réduit la hauteur des images sur tablette. */
     .photo-vitrine img,
     .savoir-faire-photo img {
         height: 320px;
     }
 
+
+/* Réduit l'espace entre les liens de navigation. */
     .entete nav ul {
         gap: 8px 14px;
     }
 
+
+/* Centre les éléments du pied de page. */
     .pied-page {
         justify-content: center;
         text-align: center;
     }
 
+
+/* Centre également les liens du pied de page. */
     .pied-page nav ul {
         justify-content: center;
     }
@@ -1152,28 +1524,47 @@ main > h1 {
    12. RESPONSIVE — MOBILES
    ========================================================= */
 
+
+/*
+   Ces règles s'appliquent aux écrans de 700 px ou moins.
+   On adapte la présentation pour faciliter la lecture
+   et la navigation sur smartphone.
+*/
 @media (max-width: 700px) {
+
+     /* L'en-tête passe en disposition verticale. */
     .entete {
         flex-direction: column;
         align-items: center;
         padding: 18px 5%;
     }
 
+
+    /* Le menu occupe toute la largeur disponible. */
     .entete nav {
         flex: 0 1 auto;
         width: 100%;
     }
 
+
+    /* Centre les liens du menu sur mobile. */
     .entete nav ul {
         justify-content: center;
         gap: 6px 14px;
     }
 
+
+    /* Réduit la taille et les espacements des liens. */
     .entete nav a {
         padding: 7px 3px;
         font-size: 0.9rem;
     }
 
+
+    /*
+       Les blocs photo et texte passent sur une seule colonne.
+       1fr signifie que la colonne occupe toute la largeur disponible.
+    */
     .photo-vitrine,
     .savoir-faire {
         grid-template-columns: 1fr;
@@ -1181,15 +1572,27 @@ main > h1 {
         margin: 48px auto;
     }
 
+
+    /* Réduit la hauteur des images sur smartphone. */
     .photo-vitrine img,
     .savoir-faire-photo img {
         height: 280px;
     }
 
+
+     /*
+       order modifie l'ordre d'affichage d'un élément Flexbox.
+       Ici, le texte est placé en deuxième position.
+    */
     .photo-texte {
         order: 2;
     }
 
+
+     /*
+       Toutes ces grilles passent à une seule colonne.
+       Les cartes s'affichent donc les unes sous les autres.
+    */
     .grille-produits,
     .produits-phares,
     .grille-pains,
@@ -1197,6 +1600,8 @@ main > h1 {
         grid-template-columns: 1fr;
     }
 
+
+    /* Réduit les marges verticales des différentes sections. */
     .incontournables,
     .section-pains,
     .section-tarifs {
@@ -1205,65 +1610,93 @@ main > h1 {
         margin-bottom: 48px;
     }
 
+
+    /* Réduit l'espace sous les cartes produits. */
     .produits-phares {
         margin-bottom: 48px;
     }
 
+
+    /* La hauteur des cartes s'adapte automatiquement au contenu. */
     .produits-phares article {
         height: auto;
     }
 
+
+    /* Sur mobile, le bouton retrouve un espacement classique. */
     .produits-phares article .ajouter-panier {
         margin-top: 12px;
     }
 
+
+    /* Réduit les marges horizontales de la page contact. */
     .page-contact {
         padding-right: 5%;
         padding-left: 5%;
     }
 
+
+     /* Réduit les marges de l'introduction de la page contact. */
     .page-contact .contact-intro-vertical {
         margin: 36px auto;
     }
 
+
+    /* Réduit les espacements intérieurs des cartes et du formulaire. */
     .page-contact .contact-card,
     .page-contact .formulaire-contact {
         padding: 24px;
     }
 
+
+     /* Le pied de page s'organise verticalement. */
     .pied-page {
         flex-direction: column;
         padding: 26px 5%;
     }
 
+
+    /* La page panier utilise presque toute la largeur du mobile. */
     .page-panier {
         width: calc(100% - 24px);
         margin: 20px 12px;
         padding: 18px;
     }
 
+
+     /* Réduit l'espacement et le remplissage des lignes du panier. */
     .ligne-panier {
         gap: 10px;
         padding: 14px;
     }
 
+
+     /* Le nom du produit occupe toute la largeur de sa ligne. */
     .ligne-panier h3 {
         flex-basis: 100%;
     }
 
+
+    /* Réduit la taille du total du panier. */
     #total-panier {
         font-size: 1.2rem;
     }
 
+
+    /* Le bouton vider le panier occupe toute la largeur. */
     .btn-vider-panier {
         width: 100%;
         margin-left: 0;
     }
 
+
+    /* Réduit le remplissage du récapitulatif de confirmation. */
     .recap-confirmation {
         padding: 14px;
     }
 
+
+    /* Autorise le retour à la ligne des détails des produits. */
     #produits-confirmation p {
         flex-wrap: wrap;
     }
@@ -1274,53 +1707,83 @@ main > h1 {
    13. RESPONSIVE — PETITS MOBILES
    ========================================================= */
 
+
+/*
+   Dernier niveau d'adaptation pour les écrans de 500 px ou moins, notamment les petits smartphones.
+*/
 @media (max-width: 500px) {
+
+    /* Réduit légèrement la taille générale des textes. */
     body {
         font-size: 15px;
     }
 
+
+    /* Réduit les dimensions du motif du logo. */
     .logo-motif {
         width: 68px;
         height: 54px;
     }
 
+
+    /* Réduit la taille du nom de la boulangerie. */
     .logo .logo-nom {
         font-size: 1.6rem;
     }
 
+
+    /* Réduit la taille de la signature du logo. */
     .logo .logo-signature {
         font-size: 0.7rem;
     }
 
+
+    /* Adapte le titre de la bannière aux petits écrans. */
     .hero h1 {
         font-size: 2.15rem;
     }
 
+
+    /* Réduit la hauteur des images des cartes. */
     .produit-accueil img,
     .produits-phares article img,
     .carte-pain img {
         height: 210px;
     }
 
+
+    /* Réduit les marges intérieures du formulaire de contact. */
     .page-contact .formulaire-contact {
         padding: 20px;
     }
 
+
+    /* Le bouton du formulaire occupe toute la largeur. */
     .page-contact .formulaire-contact button {
         width: 100%;
     }
 
+
+    /* Le tableau des tarifs utilise davantage de largeur. */
     .section-tarifs {
         width: 94%;
     }
 
+
+    /* Réduit les espacements et la taille du texte du tableau. */
     .section-tarifs th,
     .section-tarifs td {
         padding: 8px 6px;
         font-size: 0.85rem;
+
+        /*
+           overflow-wrap: anywhere autorise la coupure des longues chaînes de caractères pour éviter un débordement horizontal.
+        */
         overflow-wrap: anywhere;
     }
 
+
+    /* Réduit les espaces entre les liens du pied de page. */
     .pied-page nav ul {
         gap: 8px 14px;
     }
