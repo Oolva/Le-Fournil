@@ -325,61 +325,44 @@
 
     
 <!-- Pied de page commun -->
+
 <footer class="pied-page">
 
+    <!-- SIGNATURE DE LA BOULANGERIE -->
     <p class="signature-footer">
         Le Fournil
     </p>
 
-
-        <!-- MENTION DE COPYRIGHT
-             Le symbole © indique une mention de droit d'auteur.
-             L'année est renseignée manuellement dans le HTML. -->
+    <!-- MENTION DE COPYRIGHT -->
     <p>
         © 2026 Le Fournil — Boulangerie artisanale
     </p>
 
-
-
-     <!-- NAVIGATION SECONDAIRE
-             NAV définit une zone de navigation.
-             aria-label permet de distinguer cette navigation de celle située dans l'en-tête.
-             UL et LI organisent les liens sous forme de liste. -->
+    <!-- NAVIGATION SECONDAIRE -->
     <nav aria-label="Navigation de pied de page">
         <ul>
+
             <li><a href="index.html">Accueil</a></li>
+
             <li><a href="carte.html">La carte</a></li>
 
-
-             <!-- LIEN VERS LES TARIFS
-                     Le slash initial dans /carte.html indique un chemin depuis la racine du site.
-                     Sur un hébergement à la racine, il peut fonctionner, mais le chemin relatif carte.html est plus adapté à la navigation entre ces fichiers du projet. -->
+            <!-- LIEN DIRECT VERS LES TARIFS -->
             <li>
-                <a href="/carte.html#tarifs">Les tarifs</a>
+                <a href="carte.html#tarifs">Les tarifs</a>
             </li>
+
             <li><a href="contact.html">Contact</a></li>
 
-            <!-- ACCÈS AU PANIER
-                     Le lien permet d'ouvrir la page panier.html.
-                     Le compteur est actualisé par JavaScript grâce à l'attribut data-compteur-panier. -->
-            <li><a href="panier.html">Mon panier 🛒
-                <span class="compteur-panier" data-compteur-panier>0</span>
-            </a></li>
+            
+            <!-- LIENS VERS LES DOCUMENTS JURIDIQUES -->
+            <li><a href="cgu.html">CGU</a></li>
+            <li><a href="cgv.html">CGV</a></li>
+            <li><a href="confidentialite.html">Confidentialité</a></li>
 
-            <!-- DEUXIÈME LIEN VERS LE PANIER
-                     Cette deuxième entrée utilise la classe lien-panier.
-                     Elle possède également un compteur utilisant le même attribut personnalisé. -->
-            <li>
-                <a href="panier.html" class="lien-panier">
-                    Mon panier
-                    <span class="compteur-panier" data-compteur-panier>0</span>
-                </a>
-            </li>
         </ul>
     </nav>
 
-</footer> <!-- FIN DU PIED DE PAGE -->
-
+</footer>
 
 </body> <!-- FIN DU CORPS DU DOCUMENT -->
 </html> <!-- FIN DU DOCUMENT HTML -->

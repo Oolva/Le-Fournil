@@ -1788,3 +1788,84 @@ main > h1 {
         gap: 8px 14px;
     }
 }
+
+
+
+
+/* =========================================
+   CONDITIONS GÉNÉRALES D'UTILISATION ET DE VENTE
+   ========================================= */
+
+/* Conteneur général des pages légales */
+.contenu-legal {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: var(--ivoire);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Section contenant le texte juridique */
+.section-legale {
+    color: var(--brun);
+    line-height: 1.8;
+}
+
+/* Titre principal */
+.section-legale h1 {
+    color: var(--brun);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Titres des articles */
+.section-legale h2 {
+    color: var(--terracotta);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+/* Paragraphes */
+.section-legale p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+/* Liens présents dans le contenu */
+.section-legale a {
+    color: var(--terracotta);
+    text-decoration: underline;
+}
+
+/* Date de mise à jour */
+.section-legale .date-mise-a-jour {
+    margin-top: 35px;
+    font-style: italic;
+    font-size: 0.85rem;
+    text-align: right;
+}
+
+/* Adaptation aux écrans mobiles */
+@media screen and (max-width: 600px) {
+
+    .contenu-legal {
+        width: 95%;
+        margin: 25px auto;
+        padding: 20px;
+    }
+
+    .section-legale h1 {
+        font-size: 1.7rem;
+    }
+
+    .section-legale h2 {
+        font-size: 1.15rem;
+    }
+
+}
